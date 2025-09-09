@@ -19,7 +19,7 @@ from integrations.notion_client import NotionClient
 from integrations.powerbi_client import PowerBIClient
 from integrations.teams_client import TeamsClient
 from integrations.epic_beaker_client import EpicBeakerClient
-from integrations.qmatic_client import QmaticClient
+from integrations.qmatic_api import QmaticConnector as QmaticClient
 from integrations.biorad_client import BioRadClient
 from integrations.hrconnect_client import HRConnectClient
 from utils.audit_logger import AuditLogger

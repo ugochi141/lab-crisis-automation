@@ -40,7 +40,7 @@ jobs:
         
     - name: Install dependencies
       run: |
-        pip install notion-client requests
+        pip install requests
         
     - name: Create logs directory
       run: |
@@ -50,12 +50,12 @@ jobs:
         
     - name: Validate environment variables
       run: |
-        if (-not $env:NOTION_TOKEN) {
-          Write-Error "NOTION_TOKEN is not set"
+        if (-not $env:NOTION_API_TOKEN) {
+          Write-Error "NOTION_API_TOKEN is not set"
           exit 1
         }
-        if (-not $env:TEAMS_WEBHOOK) {
-          Write-Error "TEAMS_WEBHOOK is not set"
+        if (-not $env:TEAMS_WEBHOOK_URL) {
+          Write-Error "TEAMS_WEBHOOK_URL is not set"
           exit 1
         }
         Write-Host "Environment variables validated successfully"

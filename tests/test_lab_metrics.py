@@ -13,7 +13,9 @@ class TestLabMetrics(unittest.TestCase):
             error_count=2,
             break_time_minutes=30,
             qc_completion_percent=98.5,
-            tat_target_met=True
+            tat_target_met=True,
+            performance_score=85.0,
+            supervisor="Jane Smith"
         )
         self.assertEqual(metrics.staff_member, "John Doe")
         self.assertTrue(metrics.tat_target_met)
