@@ -31,11 +31,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
       
-    - name: Setup PowerShell
-      uses: actions/setup-powershell@v1
-      with:
-        version: '7.3'
-        
     - name: Create logs directory
       run: |
         if (-not (Test-Path "logs")) {
@@ -60,7 +55,7 @@ jobs:
         
     - name: Run alert forwarding script
       run: |
-        .\scripts\lab_alert_forwarding.ps1
+        .\scripts\lab_alert_forwarding_simple.ps1
       env:
         NOTION_API_TOKEN: ${{ env.NOTION_API_TOKEN }}
         TEAMS_WEBHOOK_URL: ${{ env.TEAMS_WEBHOOK_URL }}
@@ -97,7 +92,7 @@ jobs:
           )
         }
         
-        Invoke-RestMethod -Uri $env:TEAMS_WEBHOOK -Method Post -Body ($errorMessage | ConvertTo-Json -Depth 10) -ContentType "application/json"
+        Invoke-RestMethod -Uri $env:TEAMS_WEBHOOK_URL -Method Post -Body ($errorMessage | ConvertTo-Json -Depth 10) -ContentType "application/json"
       env:
         TEAMS_WEBHOOK_URL: ${{ env.TEAMS_WEBHOOK_URL }}
 
@@ -117,18 +112,18 @@ jobs:
         
     - name: Install dependencies
       run: |
-        pip install notion-client pandas schedule requests aiohttp
+        echo "No dependencies needed for simplified script"
         
     - name: Run performance monitoring
       run: |
-        python integrations/notion_lab_automation.py
+        python scripts/notion_lab_automation_simple.py
       env:
         NOTION_API_TOKEN: ${{ env.NOTION_API_TOKEN }}
         TEAMS_WEBHOOK_URL: ${{ env.TEAMS_WEBHOOK_URL }}
         
     - name: Generate performance report
       run: |
-        python scripts/generate_performance_report.py
+        python scripts/generate_crisis_report.py
       env:
         NOTION_API_TOKEN: ${{ env.NOTION_API_TOKEN }}
         
@@ -160,7 +155,7 @@ jobs:
         
     - name: Update dashboard
       run: |
-        node scripts/update_dashboard.js
+        node scripts/update_crisis_dashboard.js
       env:
         NOTION_API_TOKEN: ${{ env.NOTION_API_TOKEN }}
         NOTION_DATABASE_ID: ${{ secrets.NOTION_DASHBOARD_DB_ID }}

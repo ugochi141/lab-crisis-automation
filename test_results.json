@@ -1,0 +1,145 @@
+[
+  {
+    "name": "LabAutomation",
+    "path": "/Users/ugochi141/Desktop/LabAutomation",
+    "status": "passing",
+    "tests": [
+      {
+        "type": "pytest",
+        "success": true,
+        "message": "Tests passed"
+      },
+      {
+        "type": "syntax",
+        "file": "performance_management_system.py",
+        "success": true,
+        "message": "Syntax valid"
+      },
+      {
+        "type": "syntax",
+        "file": "test_security.py",
+        "success": true,
+        "message": "Syntax valid"
+      },
+      {
+        "type": "syntax",
+        "file": "setup_environment.py",
+        "success": true,
+        "message": "Syntax valid"
+      }
+    ],
+    "git_status": "modified"
+  },
+  {
+    "name": "Critical-Values-Alert-System",
+    "path": "/Users/ugochi141/Critical-Values-Alert-System",
+    "status": "passing",
+    "tests": [
+      {
+        "type": "syntax",
+        "file": "enhanced_critical_values_system.py",
+        "success": true,
+        "message": "Syntax valid"
+      },
+      {
+        "type": "syntax",
+        "file": "run_production.py",
+        "success": true,
+        "message": "Syntax valid"
+      },
+      {
+        "type": "syntax",
+        "file": "app.py",
+        "success": true,
+        "message": "Syntax valid"
+      }
+    ],
+    "git_status": "modified"
+  },
+  {
+    "name": "HL7-Lab-Results-Pipeline",
+    "path": "/Users/ugochi141/HL7-Lab-Results-Pipeline",
+    "status": "passing",
+    "tests": [
+      {
+        "type": "syntax",
+        "file": "hl7_final_demo.py",
+        "success": true,
+        "message": "Syntax valid"
+      },
+      {
+        "type": "syntax",
+        "file": "hl7_lab_pipeline.py",
+        "success": true,
+        "message": "Syntax valid"
+      },
+      {
+        "type": "syntax",
+        "file": "hl7_demo_fixed.py",
+        "success": true,
+        "message": "Syntax valid"
+      }
+    ],
+    "git_status": "clean"
+  },
+  {
+    "name": "lab-order-dashboard-frontend",
+    "path": "/Users/ugochi141/frontend/lab-order-dashboard-frontend",
+    "status": "passing",
+    "tests": [
+      {
+        "type": "npm",
+        "success": true,
+        "message": "Tests passed"
+      }
+    ],
+    "git_status": "modified"
+  },
+  {
+    "name": "BioPythonAssignment",
+    "path": "/Users/ugochi141/BioPythonAssignment",
+    "status": "passing",
+    "tests": [
+      {
+        "type": "syntax",
+        "file": "assignment9.py",
+        "success": true,
+        "message": "Syntax valid"
+      },
+      {
+        "type": "syntax",
+        "file": "sequence_reader.py",
+        "success": true,
+        "message": "Syntax valid"
+      }
+    ],
+    "git_status": "modified"
+  },
+  {
+    "name": "JHU_Bioinformatics_Portfolio",
+    "path": "/Users/ugochi141/JHU_Bioinformatics_Portfolio",
+    "status": "passing",
+    "tests": [
+      {
+        "type": "syntax",
+        "file": "portfolio_launcher.py",
+        "success": true,
+        "message": "Syntax valid"
+      },
+      {
+        "type": "syntax",
+        "file": "launch_portfolio.py",
+        "success": true,
+        "message": "Syntax valid"
+      }
+    ],
+    "git_status": "clean"
+  },
+  {
+    "name": "huntington_analysis",
+    "path": "/Users/ugochi141/huntington_analysis",
+    "status": "no_tests",
+    "tests": [],
+    "git_status": "modified"
+  }
+]
