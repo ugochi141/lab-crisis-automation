@@ -1,0 +1,96 @@
+# Kaiser Permanente Lab Automation System - Environment Variables
+# Copy this file to .env and fill in your actual values
+# NEVER commit .env files to version control
+
+# =============================================================================
+# NOTION INTEGRATION
+# =============================================================================
+NOTION_API_TOKEN=your_notion_integration_token_here
+NOTION_VERSION=2022-06-28
+
+# Database IDs (from your Notion setup)
+NOTION_PERFORMANCE_DB_ID=16a9583e-3aa3-4be1-b038-f0815dbef528
+NOTION_INCIDENT_DB_ID=a39ce270-3ceb-442a-a237-ea67402dfab0
+
+# Team Workspace Configuration
+NOTION_TEAM_WORKSPACE_ID=1cdd2227-51b3-818e-8bb7-004288f69712
+NOTION_TEAM_WORKSPACE_URL=https://www.notion.so/team/1cdd2227-51b3-818e-8bb7-004288f69712/join
+
+# =============================================================================
+# POWER BI INTEGRATION  
+# =============================================================================
+POWERBI_WORKSPACE_ID=3f8a7bc4-e337-47a5-a0fc-0d512c0e05f1
+
+# Dataset IDs and API Keys
+POWERBI_PERFORMANCE_DATASET_ID=c10f3187-4e08-40f5-91c8-9d4713d727f4
+POWERBI_PERFORMANCE_API_KEY=your_performance_dataset_key_here
+
+POWERBI_OPERATIONS_DATASET_ID=a02070f8-ae5f-4ab0-9462-abdce55eca2c  
+POWERBI_OPERATIONS_API_KEY=your_operations_dataset_key_here
+
+# =============================================================================
+# MICROSOFT TEAMS INTEGRATION
+# =============================================================================
+TEAMS_WEBHOOK_URL=your_teams_webhook_url_here
+
+# =============================================================================
+# EPIC BEAKER (Lab Information System)
+# =============================================================================
+EPIC_BEAKER_URL=your_epic_beaker_url_here
+EPIC_BEAKER_USERNAME=your_epic_username_here
+EPIC_BEAKER_PASSWORD=your_epic_password_here
+EPIC_BEAKER_CLIENT_ID=your_epic_client_id_here
+
+# =============================================================================
+# QMATIC QUEUE MANAGEMENT
+# =============================================================================
+QMATIC_API_URL=your_qmatic_api_url_here
+QMATIC_API_KEY=your_qmatic_api_key_here
+QMATIC_USERNAME=your_qmatic_username_here
+QMATIC_PASSWORD=your_qmatic_password_here
+
+# =============================================================================
+# BIO-RAD UNITY QC MANAGEMENT
+# =============================================================================
+BIORAD_UNITY_URL=your_biorad_unity_url_here
+BIORAD_UNITY_USERNAME=your_biorad_username_here
+BIORAD_UNITY_PASSWORD=your_biorad_password_here
+
+# =============================================================================
+# HR CONNECT (Scheduling System)
+# =============================================================================
+HRCONNECT_API_URL=your_hrconnect_api_url_here
+HRCONNECT_API_KEY=your_hrconnect_api_key_here
+HRCONNECT_USERNAME=your_hrconnect_username_here
+HRCONNECT_PASSWORD=your_hrconnect_password_here
+
+# =============================================================================
+# LOGGING & MONITORING
+# =============================================================================
+LOG_LEVEL=INFO
+LOG_FILE_PATH=logs/lab_automation.log
+AUDIT_LOG_PATH=logs/audit_trail.log
+
+# =============================================================================
+# ALERT THRESHOLDS
+# =============================================================================
+TAT_THRESHOLD_MINUTES=30
+PERFORMANCE_SCORE_THRESHOLD=60
+ERROR_RATE_THRESHOLD=2
+BREAK_TIME_THRESHOLD_MINUTES=60
+QC_COMPLETION_THRESHOLD=95
+
+# =============================================================================
+# OPERATIONAL SETTINGS
+# =============================================================================
+MONITORING_INTERVAL_SECONDS=300
+ALERT_COOLDOWN_MINUTES=15
+MAX_RETRY_ATTEMPTS=3
+REQUEST_TIMEOUT_SECONDS=30
+
+# =============================================================================
+# SECURITY & COMPLIANCE
+# =============================================================================
+ENCRYPTION_KEY=your_encryption_key_here
+HIPAA_AUDIT_MODE=true
+DATA_RETENTION_DAYS=2555  # 7 years for HIPAA compliance

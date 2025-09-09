@@ -1,0 +1,6 @@
+sample_id,patient_id,test_code,tat_minutes,tech,collect_time,result_time
+S001,P101,CBC,35,John S,08:00,08:35
+S002,P102,CMP,52,Mary D,08:15,09:07
+S003,P103,CBC,41,Bob K,08:30,09:11
+S004,P104,BMP,38,John S,08:45,09:23
+S005,P105,Lipid,67,Sarah L,09:00,10:07

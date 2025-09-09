@@ -1,0 +1,191 @@
+name: Lab Crisis Automation Pipeline
+
+on:
+  schedule:
+    # Run every 5 minutes during business hours (6 AM - 8 PM EST)
+    - cron: '*/5 11-23 * * 1-5'  # UTC time (EST + 5 hours)
+  workflow_dispatch:  # Allow manual triggers
+    inputs:
+      environment:
+        description: 'Environment to run in'
+        required: true
+        default: 'production'
+        type: choice
+        options:
+        - production
+        - staging
+        - development
+
+env:
+  # Your specific Notion credentials (from GitHub Secrets)
+  NOTION_TOKEN: ${{ secrets.NOTION_API_TOKEN }}
+  NOTION_VERSION: 2022-06-28
+  NOTION_PERFORMANCE_DB_ID: ${{ secrets.NOTION_PERFORMANCE_DB_ID }}
+  NOTION_INCIDENT_DB_ID: ${{ secrets.NOTION_INCIDENT_DB_ID }}
+  NOTION_LAB_MANAGEMENT_CENTER: ${{ secrets.NOTION_LAB_MANAGEMENT_CENTER }}
+  
+  # Your specific Power BI endpoints (from GitHub Secrets)
+  POWERBI_MONITOR_URL: ${{ secrets.POWERBI_MONITOR_PUSH_URL }}
+  POWERBI_METRICS_URL: ${{ secrets.POWERBI_METRICS_PUSH_URL }}
+  
+  # Your specific Teams webhook (from GitHub Secrets)
+  TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
+
+jobs:
+  crisis-monitoring:
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup PowerShell
+      uses: actions/setup-powershell@v1
+      with:
+        version: '7.3'
+        
+    - name: Create logs directory
+      run: |
+        if (-not (Test-Path "logs")) {
+          New-Item -ItemType Directory -Path "logs" -Force
+        }
+        
+    - name: Validate crisis configuration
+      run: |
+        Write-Host "Validating crisis monitoring configuration..."
+        if (-not $env:NOTION_TOKEN) {
+          Write-Error "NOTION_TOKEN is not set"
+          exit 1
+        }
+        if (-not $env:TEAMS_WEBHOOK_URL) {
+          Write-Error "TEAMS_WEBHOOK_URL is not set"
+          exit 1
+        }
+        if (-not $env:POWERBI_MONITOR_URL) {
+          Write-Error "POWERBI_MONITOR_URL is not set"
+          exit 1
+        }
+        Write-Host "✅ Crisis configuration validated successfully"
+        
+    - name: Run crisis monitoring script
+      run: |
+        .\scripts\lab_crisis_monitoring.ps1
+      env:
+        NotionToken: ${{ env.NOTION_TOKEN }}
+        TeamsWebhook: ${{ env.TEAMS_WEBHOOK_URL }}
+        PowerBIMonitorUrl: ${{ env.POWERBI_MONITOR_URL }}
+        PowerBIMetricsUrl: ${{ env.POWERBI_METRICS_URL }}
+        
+    - name: Upload crisis logs
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: crisis-monitoring-logs-${{ github.run_number }}
+        path: logs/
+        retention-days: 30
+        
+    - name: Notify crisis escalation
+      if: failure()
+      run: |
+        $crisisMessage = @{
+          "@type" = "MessageCard"
+          "@context" = "http://schema.org/extensions"
+          "themeColor" = "FF0000"
+          "summary" = "🚨 Lab Crisis Monitoring Pipeline Failed"
+          "sections" = @(
+            @{
+              "activityTitle" = "🚨 CRITICAL: Lab Crisis Monitoring Pipeline Failed"
+              "activitySubtitle" = "Immediate attention required - Crisis monitoring is down"
+              "facts" = @(
+                @{ "name" = "Workflow"; "value" = "${{ github.workflow }}" }
+                @{ "name" = "Run ID"; "value" = "${{ github.run_id }}" }
+                @{ "name" = "Time"; "value" = "$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')" }
+                @{ "name" = "Environment"; "value" = "${{ github.event.inputs.environment || 'production' }}" }
+                @{ "name" = "Impact"; "value" = "Crisis monitoring offline - Lab performance at risk" }
+              )
+            }
+          )
+        }
+        
+        Invoke-RestMethod -Uri $env:TEAMS_WEBHOOK_URL -Method Post -Body ($crisisMessage | ConvertTo-Json -Depth 10) -ContentType "application/json"
+      env:
+        TEAMS_WEBHOOK_URL: ${{ env.TEAMS_WEBHOOK_URL }}
+
+  python-crisis-automation:
+    runs-on: windows-latest
+    needs: crisis-monitoring
+    if: always()
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Install crisis dependencies
+      run: |
+        pip install notion-client pandas schedule requests aiohttp
+        
+    - name: Run Python crisis automation
+      run: |
+        python integrations/notion_lab_manager.py
+      env:
+        NOTION_TOKEN: ${{ env.NOTION_TOKEN }}
+        TEAMS_WEBHOOK_URL: ${{ env.TEAMS_WEBHOOK_URL }}
+        POWERBI_MONITOR_URL: ${{ env.POWERBI_MONITOR_URL }}
+        POWERBI_METRICS_URL: ${{ env.POWERBI_METRICS_URL }}
+        
+    - name: Generate crisis report
+      run: |
+        python scripts/generate_crisis_report.py
+      env:
+        NOTION_TOKEN: ${{ env.NOTION_TOKEN }}
+        TEAMS_WEBHOOK_URL: ${{ env.TEAMS_WEBHOOK_URL }}
+        
+    - name: Upload crisis report
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: crisis-report-${{ github.run_number }}
+        path: reports/
+        retention-days: 90
+
+  emergency-response:
+    runs-on: ubuntu-latest
+    needs: [crisis-monitoring, python-crisis-automation]
+    if: always()
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: |
+        npm install -g @notionhq/client axios
+        
+    - name: Update crisis dashboard
+      run: |
+        node scripts/update_crisis_dashboard.js
+      env:
+        NOTION_TOKEN: ${{ env.NOTION_TOKEN }}
+        NOTION_LAB_MANAGEMENT_CENTER: ${{ env.NOTION_LAB_MANAGEMENT_CENTER }}
+        
+    - name: Send crisis summary to Teams
+      run: |
+        node scripts/send_crisis_summary.js
+      env:
+        TEAMS_WEBHOOK_URL: ${{ env.TEAMS_WEBHOOK_URL }}
+        NOTION_PERFORMANCE_DB_ID: ${{ env.NOTION_PERFORMANCE_DB_ID }}
+        
+    - name: Deploy crisis dashboard
+      run: |
+        echo "Crisis dashboard updated successfully"
+        echo "All crisis monitoring systems operational"

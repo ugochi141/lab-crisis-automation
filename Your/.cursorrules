@@ -1,0 +1,37 @@
+# .cursorrules
+project: Kaiser Permanente Lab Automation System
+location: Largo, MD
+role: Laboratory Operations Manager
+
+context:
+  - Integrating Epic Beaker, Qmatic, Bio-Rad Unity, HRConnect
+  - Managing 10 phlebotomy stations
+  - Tracking TAT, wait times, staff performance
+  - Current problems: 50% idle time, poor TAT, scheduling issues
+  - Need: Automated workflows, performance tracking, alerts
+
+systems:
+  epic_beaker: Lab Information System
+  qmatic: Queue Management
+  bio_rad_unity: QC Management
+  hrconnect: HR/Scheduling
+  notion: Performance Tracking
+  power_bi: Dashboards
+
+requirements:
+  - Error handling on all functions
+  - Logging for audit trails  
+  - HIPAA compliance
+  - Real-time monitoring
+  - Automated alerts
+  - Performance metrics
+
+style:
+  - Production-ready code
+  - Comprehensive comments
+  - Type hints in Python
+  - Async operations for APIs
+  - Modular architecture
+
+
+

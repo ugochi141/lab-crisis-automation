@@ -1,0 +1,44 @@
+{
+  "stations": [
+    {
+      "name": "Station 1",
+      "tech": "John S",
+      "wait_time": 12,
+      "queue_length": 3,
+      "patients_served": 45,
+      "is_open": true
+    },
+    {
+      "name": "Station 2",
+      "tech": "Mary D",
+      "wait_time": 8,
+      "queue_length": 2,
+      "patients_served": 52,
+      "is_open": true
+    },
+    {
+      "name": "Station 3",
+      "tech": "Bob K",
+      "wait_time": 25,
+      "queue_length": 8,
+      "patients_served": 38,
+      "is_open": true
+    },
+    {
+      "name": "Station 4",
+      "tech": "Unassigned",
+      "wait_time": 0,
+      "queue_length": 0,
+      "patients_served": 0,
+      "is_open": false
+    },
+    {
+      "name": "Station 5",
+      "tech": "Sarah L",
+      "wait_time": 35,
+      "queue_length": 12,
+      "patients_served": 28,
+      "is_open": true
+    }
+  ]
+}

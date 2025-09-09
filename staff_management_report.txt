@@ -1,0 +1,120 @@
+🚨 STAFF ACCOUNTABILITY & MANAGEMENT REPORT
+Kaiser Permanente Lab Automation System - Largo, MD
+================================================================================
+
+EXECUTIVE SUMMARY
+----------------------------------------
+🚨 CRITICAL STAFF PERFORMANCE ISSUES DETECTED
+
+CRISIS LEVEL: SEVERE
+IMMEDIATE INTERVENTION REQUIRED: YES
+STAFFING EMERGENCY: MULTIPLE UNDERPERFORMERS
+BEHAVIORAL CRISIS: WIDESPREAD ISSUES
+
+STAFF PERFORMANCE SUMMARY
+----------------------------------------
+John Smith (staff_1):
+  Position: Phlebotomist
+  Performance Rating: 2.5/5
+  TAT Compliance: 25.0%
+  Error Rate: 20.0%
+  Idle Time: 65.0%
+  Break Violations: 8
+  Behavioral Issues: long_breaks, slow_processing, frequent_errors
+
+Sarah Johnson (staff_2):
+  Position: Lab Technician
+  Performance Rating: 3.0/5
+  TAT Compliance: 30.0%
+  Error Rate: 15.0%
+  Idle Time: 58.0%
+  Break Violations: 5
+  Behavioral Issues: data_entry_errors, sample_mislabeling
+
+Mike Davis (staff_3):
+  Position: Phlebotomist
+  Performance Rating: 1.5/5
+  TAT Compliance: 15.0%
+  Error Rate: 25.0%
+  Idle Time: 72.0%
+  Break Violations: 12
+  Behavioral Issues: frequent_disappearances, severe_errors, attitude_problems
+
+Lisa Wilson (staff_4):
+  Position: Lab Technician
+  Performance Rating: 2.8/5
+  TAT Compliance: 35.0%
+  Error Rate: 18.0%
+  Idle Time: 61.0%
+  Break Violations: 6
+  Behavioral Issues: slow_qc, maintenance_delays
+
+Robert Brown (staff_5):
+  Position: Phlebotomist
+  Performance Rating: 2.0/5
+  TAT Compliance: 20.0%
+  Error Rate: 22.0%
+  Idle Time: 68.0%
+  Break Violations: 10
+  Behavioral Issues: mistake_hiding, poor_communication
+
+CRITICAL STAFF ISSUES
+----------------------------------------
+🚨 IMMEDIATE ACTION REQUIRED:
+
+1. Staff 3 (Mike Davis):
+   - CRITICAL: Final warning status
+   - Frequent disappearances
+   - Severe attitude problems
+   - Multiple warnings ignored
+   - ACTION: 7-day final warning period
+
+2. Staff 1 (John Smith):
+   - High idle time (65%)
+   - Frequent break violations
+   - Slow work pace
+   - ACTION: 30-day PIP
+
+3. Staff 5 (Robert Brown):
+   - Mistake hiding behavior
+   - Poor communication
+   - Defensive attitude
+   - ACTION: 30-day PIP
+
+INTERVENTION PLANS
+----------------------------------------
+John Smith - Performance Improvement Plan:
+  Duration: 30_days
+  Start Date: 2025-09-03
+  End Date: 2025-10-03
+  Goals: Improve TAT compliance to 80%, Reduce error rate to 10%, Reduce idle time to 30%, Improve attendance to 95%
+
+Robert Brown - Performance Improvement Plan:
+  Duration: 30_days
+  Start Date: 2025-09-03
+  End Date: 2025-10-03
+  Goals: Improve TAT compliance to 75%, Reduce error rate to 15%, Stop mistake hiding behavior, Improve communication skills
+
+ENHANCED SUPERVISION SYSTEM
+----------------------------------------
+✅ Real-time monitoring implemented
+✅ Automated alerts activated
+✅ Daily supervision schedule
+✅ Weekly performance reviews
+✅ Monthly assessments
+✅ Documentation requirements
+
+IMMEDIATE NEXT STEPS
+----------------------------------------
+1. 🚨 TODAY: Emergency staff meeting
+2. 🚨 TODAY: Deploy real-time monitoring
+3. 🚨 TODAY: Begin PIPs for underperformers
+4. 🚨 TODAY: Final warning for Staff 3
+5. 🚨 THIS WEEK: Implement supervision schedule
+6. 🚨 THIS WEEK: Begin retraining programs
+7. 🚨 THIS MONTH: Deploy incentive programs
+
+================================================================================
+Report generated on: 2025-09-03 17:21:21
+CRISIS LEVEL: SEVERE - IMMEDIATE ACTION REQUIRED
+================================================================================

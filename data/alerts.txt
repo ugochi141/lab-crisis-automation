@@ -1,0 +1,3 @@
+WARNING: Station 3 wait time exceeding 20 minutes
+CRITICAL: TAT rate dropped below 70%
+INFO: Morning QC completed successfully

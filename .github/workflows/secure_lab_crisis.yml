@@ -1,0 +1,105 @@
+name: Secure Lab Crisis Automation
+
+on:
+  schedule:
+    # Run every 5 minutes during business hours (6 AM - 8 PM EST)
+    - cron: '*/5 11-23 * * 1-5'  # UTC time (EST + 5 hours)
+  workflow_dispatch:  # Allow manual triggers
+    inputs:
+      environment:
+        description: 'Environment to run in'
+        required: true
+        default: 'production'
+        type: choice
+        options:
+        - production
+        - staging
+        - development
+
+env:
+  # These will be set as GitHub Secrets
+  NOTION_API_TOKEN: ${{ secrets.NOTION_API_TOKEN }}
+  NOTION_PERFORMANCE_DB_ID: ${{ secrets.NOTION_PERFORMANCE_DB_ID }}
+  NOTION_INCIDENT_DB_ID: ${{ secrets.NOTION_INCIDENT_DB_ID }}
+  NOTION_LAB_MANAGEMENT_CENTER: ${{ secrets.NOTION_LAB_MANAGEMENT_CENTER }}
+  TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
+  POWERBI_MONITOR_PUSH_URL: ${{ secrets.POWERBI_MONITOR_PUSH_URL }}
+  POWERBI_METRICS_PUSH_URL: ${{ secrets.POWERBI_METRICS_PUSH_URL }}
+
+jobs:
+  crisis-monitoring:
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Install dependencies
+      run: |
+        pip install notion-client requests
+        
+    - name: Create logs directory
+      run: |
+        if (-not (Test-Path "logs")) {
+          New-Item -ItemType Directory -Path "logs" -Force
+        }
+        
+    - name: Validate environment variables
+      run: |
+        if (-not $env:NOTION_API_TOKEN) {
+          Write-Error "NOTION_API_TOKEN is not set"
+          exit 1
+        }
+        if (-not $env:TEAMS_WEBHOOK_URL) {
+          Write-Error "TEAMS_WEBHOOK_URL is not set"
+          exit 1
+        }
+        Write-Host "Environment variables validated successfully"
+        
+    - name: Run secure crisis monitoring
+      run: |
+        python scripts/secure_crisis_monitor.py
+      env:
+        NOTION_API_TOKEN: ${{ env.NOTION_API_TOKEN }}
+        NOTION_PERFORMANCE_DB_ID: ${{ env.NOTION_PERFORMANCE_DB_ID }}
+        NOTION_INCIDENT_DB_ID: ${{ env.NOTION_INCIDENT_DB_ID }}
+        NOTION_LAB_MANAGEMENT_CENTER: ${{ env.NOTION_LAB_MANAGEMENT_CENTER }}
+        TEAMS_WEBHOOK_URL: ${{ env.TEAMS_WEBHOOK_URL }}
+        
+    - name: Upload logs
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: crisis-monitoring-logs-${{ github.run_number }}
+        path: logs/
+        retention-days: 30
+        
+    - name: Notify on failure
+      if: failure()
+      run: |
+        $errorMessage = @{
+          "@type" = "MessageCard"
+          "@context" = "http://schema.org/extensions"
+          "themeColor" = "FF0000"
+          "summary" = "Lab Crisis Pipeline Failed"
+          "sections" = @(
+            @{
+              "activityTitle" = "❌ Lab Crisis Pipeline Failed"
+              "facts" = @(
+                @{ "name" = "Workflow"; "value" = "${{ github.workflow }}" }
+                @{ "name" = "Run ID"; "value" = "${{ github.run_id }}" }
+                @{ "name" = "Time"; "value" = "$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')" }
+                @{ "name" = "Environment"; "value" = "${{ github.event.inputs.environment || 'production' }}" }
+              )
+            }
+          )
+        }
+        
+        Invoke-RestMethod -Uri $env:TEAMS_WEBHOOK_URL -Method Post -Body ($errorMessage | ConvertTo-Json -Depth 10) -ContentType "application/json"
+      env:
+        TEAMS_WEBHOOK_URL: ${{ env.TEAMS_WEBHOOK_URL }}

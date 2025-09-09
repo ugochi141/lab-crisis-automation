@@ -1,0 +1,84 @@
+# Environment variables
+.env
+*.env
+.env.local
+.env.production
+.env.development
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.orig
+
+# Sensitive data
+config/lab_config.py
+scripts/test_*.py
+scripts/working_*.py
+scripts/check_*.py
+*secret*
+*token*
+*password*
+*key*
+
+# Data files (optional - uncomment if you don't want to track data)
+# data/
+# *.csv
+# *.xlsx
+# *.json
+
+# Node modules (if any)
+node_modules/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# pytest cache
+.pytest_cache/
+
+# mypy cache
+.mypy_cache/
+.dmypy.json
+dmypy.json

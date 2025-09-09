@@ -1,0 +1,73 @@
+================================================================================
+LAB PERFORMANCE ANALYSIS REPORT
+Kaiser Permanente Lab Automation System - Largo, MD
+================================================================================
+
+EXECUTIVE SUMMARY
+----------------------------------------
+Overall Performance Score: 81.9/100
+
+TAT: 83.2/100 - Good
+STAFFING: 67.6/100 - Needs Improvement
+QUEUE: 92.0/100 - Good
+VOLUME: 85.0/100 - Good
+
+TURNAROUND TIME (TAT) ANALYSIS
+----------------------------------------
+Overall STAT TAT: 46.8 minutes
+STAT Compliance Rate: 83.2%
+Target Met: Yes
+
+TAT by Shift:
+  All Shift: 45.0 min (Compliance: 85.0%)
+  Day Shift: 42.0 min (Compliance: 88.0%)
+  Evening Shift: 48.0 min (Compliance: 82.0%)
+  Night Shift: 52.0 min (Compliance: 78.0%)
+
+STAFFING PERFORMANCE ANALYSIS
+----------------------------------------
+Average Idle Time: 32.4%
+Average Utilization: 67.6%
+Utilization Target Met: No
+
+Idle Time by Station:
+  phleb_station_1: 35.0% ⚠️
+  phleb_station_2: 28.0% ✅
+  phleb_station_3: 42.0% ⚠️
+  phleb_station_4: 31.0% ⚠️
+  phleb_station_5: 38.0% ⚠️
+  phleb_station_6: 25.0% ✅
+  phleb_station_7: 33.0% ⚠️
+  phleb_station_8: 29.0% ✅
+  phleb_station_9: 36.0% ⚠️
+  phleb_station_10: 27.0% ✅
+
+VOLUME METRICS
+----------------------------------------
+Monthly Patient Encounters:
+  May: 1,250
+  June: 1,320
+  July: 1,280
+  Ytd_Total: 15,200
+
+Lab Volume by Type:
+  Stat Tests: 320 (25.0%)
+  Routine Tests: 960 (75.0%)
+  Critical Tests: 45 (3.5%)
+
+QUEUE PERFORMANCE
+----------------------------------------
+Overall No-Show Rate: 8.0%
+
+Wait Times by Queue Type:
+  Emergency: 6.0 min
+  Scheduled: 8.0 min
+  Walk In: 25.0 min
+
+RECOMMENDATIONS
+----------------------------------------
+1. Optimize staffing utilization to reduce idle time
+
+================================================================================
+Report generated on: 2025-09-03 17:12:31
+================================================================================
