@@ -1,0 +1,171 @@
+{
+  "timestamp": "2025-09-09T18:45:16.318612",
+  "repositories": [
+    {
+      "name": "LabAutomation",
+      "path": "/Users/ugochi141/Desktop/LabAutomation",
+      "type": "main",
+      "language": "python",
+      "metrics": {
+        "python_files": 3221,
+        "total_lines": 1324495,
+        "has_tests": true,
+        "has_documentation": true,
+        "uncommitted_changes": 11,
+        "last_commit": "43 minutes ago"
+      },
+      "issues": [
+        "11 uncommitted changes"
+      ],
+      "status": "needs_attention"
+    },
+    {
+      "name": "Critical-Values-Alert-System",
+      "path": "/Users/ugochi141/Critical-Values-Alert-System",
+      "type": "monitoring",
+      "language": "python",
+      "metrics": {
+        "python_files": 5064,
+        "total_lines": 2045730,
+        "has_tests": false,
+        "has_documentation": true,
+        "uncommitted_changes": 4,
+        "last_commit": "6 weeks ago"
+      },
+      "issues": [
+        "No tests found"
+      ],
+      "status": "needs_attention"
+    },
+    {
+      "name": "HL7-Lab-Results-Pipeline",
+      "path": "/Users/ugochi141/HL7-Lab-Results-Pipeline",
+      "type": "integration",
+      "language": "python",
+      "metrics": {
+        "python_files": 15,
+        "total_lines": 2276,
+        "has_tests": false,
+        "has_documentation": true,
+        "uncommitted_changes": 1,
+        "last_commit": "6 weeks ago"
+      },
+      "issues": [
+        "No tests found"
+      ],
+      "status": "needs_attention"
+    },
+    {
+      "name": "lab-order-dashboard-frontend",
+      "path": "/Users/ugochi141/frontend/lab-order-dashboard-frontend",
+      "type": "frontend",
+      "language": "javascript",
+      "metrics": {
+        "javascript_files": 24654,
+        "has_tests": false,
+        "has_documentation": true,
+        "uncommitted_changes": 2,
+        "last_commit": "8 weeks ago"
+      },
+      "issues": [
+        "No tests found"
+      ],
+      "status": "needs_attention"
+    },
+    {
+      "name": "BioPythonAssignment",
+      "path": "/Users/ugochi141/BioPythonAssignment",
+      "type": "academic",
+      "language": "python",
+      "metrics": {
+        "python_files": 2,
+        "total_lines": 104,
+        "has_tests": false,
+        "has_documentation": false,
+        "uncommitted_changes": 358
+      },
+      "issues": [
+        "358 uncommitted changes",
+        "No tests found",
+        "Missing documentation"
+      ],
+      "status": "needs_attention"
+    },
+    {
+      "name": "JHU_Bioinformatics_Portfolio",
+      "path": "/Users/ugochi141/JHU_Bioinformatics_Portfolio",
+      "type": "academic",
+      "language": "python",
+      "metrics": {
+        "python_files": 11,
+        "total_lines": 1240,
+        "has_tests": false,
+        "has_documentation": true,
+        "uncommitted_changes": 0,
+        "last_commit": "6 weeks ago"
+      },
+      "issues": [
+        "No tests found"
+      ],
+      "status": "needs_attention"
+    }
+  ],
+  "summary": {
+    "total_repositories": 6,
+    "healthy": 0,
+    "needs_attention": 6,
+    "with_tests": 1,
+    "with_documentation": 5,
+    "total_uncommitted_changes": 376
+  },
+  "recommendations": [
+    {
+      "repository": "LabAutomation",
+      "priority": "high",
+      "action": "Commit or stash changes",
+      "benefit": "Maintain clean repository state"
+    },
+    {
+      "repository": "Critical-Values-Alert-System",
+      "priority": "high",
+      "action": "Add unit tests",
+      "benefit": "Improve code reliability and maintainability"
+    },
+    {
+      "repository": "HL7-Lab-Results-Pipeline",
+      "priority": "high",
+      "action": "Add unit tests",
+      "benefit": "Improve code reliability and maintainability"
+    },
+    {
+      "repository": "lab-order-dashboard-frontend",
+      "priority": "high",
+      "action": "Add unit tests",
+      "benefit": "Improve code reliability and maintainability"
+    },
+    {
+      "repository": "BioPythonAssignment",
+      "priority": "high",
+      "action": "Commit or stash changes",
+      "benefit": "Maintain clean repository state"
+    },
+    {
+      "repository": "BioPythonAssignment",
+      "priority": "high",
+      "action": "Add unit tests",
+      "benefit": "Improve code reliability and maintainability"
+    },
+    {
+      "repository": "BioPythonAssignment",
+      "priority": "medium",
+      "action": "Add or update documentation",
+      "benefit": "Improve project accessibility and onboarding"
+    },
+    {
+      "repository": "JHU_Bioinformatics_Portfolio",
+      "priority": "high",
+      "action": "Add unit tests",
+      "benefit": "Improve code reliability and maintainability"
+    }
+  ]
+}

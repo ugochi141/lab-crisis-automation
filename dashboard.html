@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Automation Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 15px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .metric-value {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.85em;
+        }
+        .status-healthy { background: #d4edda; color: #155724; }
+        .status-warning { background: #fff3cd; color: #856404; }
+        .status-critical { background: #f8d7da; color: #721c24; }
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid;
+        }
+        .alert-high { background: #f8d7da; border-color: #dc3545; }
+        .alert-medium { background: #fff3cd; border-color: #ffc107; }
+        .alert-low { background: #d1ecf1; border-color: #17a2b8; }
+        .timestamp {
+            text-align: center;
+            color: white;
+            margin-top: 30px;
+            opacity: 0.8;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 25px;
+            background: #e9ecef;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 0.5s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Lab Automation Dashboard</h1>
+        
+        <div class="dashboard-grid">
+            <!-- System Health Card -->
+            <div class="card">
+                <h2>System Health</h2>
+                <div class="status-badge status-healthy">
+                    healthy
+                </div>
+                
+            <div class="metric">
+                <span>platform</span>
+                <span class="metric-value">macOS-15.6.1-arm64-arm-64bit</span>
+            </div>
+        
+            </div>
+            
+            <!-- Performance Score Card -->
+            <div class="card">
+                <h2>Performance Score</h2>
+                
+            <div class="metric">
+                <span>Overall Score</span>
+                <span class="metric-value">97.2%</span>
+            </div>
+            <div class="metric">
+                <span>Grade</span>
+                <span class="metric-value">A+</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 97.2%">
+                    97.2%
+                </div>
+            </div>
+        
+            </div>
+            
+            <!-- Repository Status Card -->
+            <div class="card">
+                <h2>Repository Status</h2>
+                
+            <div class="metric">
+                <span>Total Repositories</span>
+                <span class="metric-value">6</span>
+            </div>
+            <div class="metric">
+                <span>Healthy</span>
+                <span class="metric-value">0</span>
+            </div>
+            <div class="metric">
+                <span>With Tests</span>
+                <span class="metric-value">1</span>
+            </div>
+        
+            </div>
+            
+            <!-- Alerts Card -->
+            <div class="card">
+                <h2>Active Alerts</h2>
+                
+            <div class="alert alert-high">
+                <strong>TAT Compliance</strong><br>
+                TAT Compliance: 88.5 (target: 90)
+            </div>
+        
+            <div class="alert alert-medium">
+                <strong>Automation Rate</strong><br>
+                Automation Rate: 72.5 (target: 80)
+            </div>
+        
+            </div>
+            
+            <!-- Lab Metrics Card -->
+            <div class="card">
+                <h2>Lab Operations</h2>
+                
+            <div class="metric">
+                <span>TAT Compliance</span>
+                <span class="metric-value">88.5%</span>
+            </div>
+            <div class="metric">
+                <span>QC Pass Rate</span>
+                <span class="metric-value">98.7%</span>
+            </div>
+            <div class="metric">
+                <span>Samples Today</span>
+                <span class="metric-value">1250</span>
+            </div>
+        
+            </div>
+            
+            <!-- Workflow Status Card -->
+            <div class="card">
+                <h2>Workflow Status</h2>
+                
+            <div class="metric">
+                <span>Automation Rate</span>
+                <span class="metric-value">72.5%</span>
+            </div>
+            <div class="metric">
+                <span>Pipeline Success</span>
+                <span class="metric-value">94.2%</span>
+            </div>
+            <div class="metric">
+                <span>Data Quality</span>
+                <span class="metric-value">98.9%</span>
+            </div>
+        
+            </div>
+        </div>
+        
+        <div class="timestamp">
+            Last Updated: 9/9/2025, 6:57:37 PM
+        </div>
+    </div>
+    
+    <script>
+        // Auto-refresh every 60 seconds
+        setTimeout(() => location.reload(), 60000);
+    </script>
+</body>
+</html>
