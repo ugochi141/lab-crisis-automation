@@ -19,6 +19,10 @@ from pathlib import Path
 import logging
 
 # Setup enhanced logging
+import os
+logs_dir = Path("logs")
+logs_dir.mkdir(exist_ok=True)
+
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',

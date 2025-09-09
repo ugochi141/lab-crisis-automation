@@ -10,6 +10,7 @@ def main():
     parser.add_argument('--status', default='success')
     parser.add_argument('--workflow', default='Unknown')
     parser.add_argument('--run-id', default='0')
+    parser.add_argument('--message', default='No message provided')
     
     args = parser.parse_args()
     
@@ -17,6 +18,7 @@ def main():
     print(f"  Status: {args.status}")
     print(f"  Workflow: {args.workflow}")
     print(f"  Run ID: {args.run_id}")
+    print(f"  Message: {args.message}")
     print(f"✓ Notification sent (simulated)")
     
     return 0
