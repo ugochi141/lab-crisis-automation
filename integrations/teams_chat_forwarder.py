@@ -485,3 +485,4 @@ async def forward_messages_now(messages_to_forward: List[str]) -> bool:
     except Exception as e:
         print(f"💥 Forwarding error: {e}")
         return False
+

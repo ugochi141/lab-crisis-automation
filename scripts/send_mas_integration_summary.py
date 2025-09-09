@@ -83,3 +83,4 @@ Your Kaiser Permanente Lab team now has full visibility into MAS Lab communicati
 
 if __name__ == "__main__":
     asyncio.run(send_summary())
+

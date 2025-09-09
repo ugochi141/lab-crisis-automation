@@ -17,18 +17,12 @@ on:
         - development
 
 env:
-  # Your specific Notion credentials (from GitHub Secrets)
-  NOTION_TOKEN: ${{ secrets.NOTION_API_TOKEN }}
-  NOTION_VERSION: 2022-06-28
+  NOTION_API_TOKEN: ${{ secrets.NOTION_API_TOKEN }}
   NOTION_PERFORMANCE_DB_ID: ${{ secrets.NOTION_PERFORMANCE_DB_ID }}
   NOTION_INCIDENT_DB_ID: ${{ secrets.NOTION_INCIDENT_DB_ID }}
   NOTION_LAB_MANAGEMENT_CENTER: ${{ secrets.NOTION_LAB_MANAGEMENT_CENTER }}
-  
-  # Your specific Power BI endpoints (from GitHub Secrets)
-  POWERBI_MONITOR_URL: ${{ secrets.POWERBI_MONITOR_PUSH_URL }}
-  POWERBI_METRICS_URL: ${{ secrets.POWERBI_METRICS_PUSH_URL }}
-  
-  # Your specific Teams webhook (from GitHub Secrets)
+  POWERBI_MONITOR_PUSH_URL: ${{ secrets.POWERBI_MONITOR_PUSH_URL }}
+  POWERBI_METRICS_PUSH_URL: ${{ secrets.POWERBI_METRICS_PUSH_URL }}
   TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
 
 jobs:
@@ -53,16 +47,16 @@ jobs:
     - name: Validate crisis configuration
       run: |
         Write-Host "Validating crisis monitoring configuration..."
-        if (-not $env:NOTION_TOKEN) {
-          Write-Error "NOTION_TOKEN is not set"
+        if (-not $env:NOTION_API_TOKEN) {
+          Write-Error "NOTION_API_TOKEN is not set"
           exit 1
         }
         if (-not $env:TEAMS_WEBHOOK_URL) {
           Write-Error "TEAMS_WEBHOOK_URL is not set"
           exit 1
         }
-        if (-not $env:POWERBI_MONITOR_URL) {
-          Write-Error "POWERBI_MONITOR_URL is not set"
+        if (-not $env:POWERBI_MONITOR_PUSH_URL) {
+          Write-Error "POWERBI_MONITOR_PUSH_URL is not set"
           exit 1
         }
         Write-Host "✅ Crisis configuration validated successfully"
@@ -71,10 +65,10 @@ jobs:
       run: |
         .\scripts\lab_crisis_monitoring.ps1
       env:
-        NotionToken: ${{ env.NOTION_TOKEN }}
+        NotionToken: ${{ env.NOTION_API_TOKEN }}
         TeamsWebhook: ${{ env.TEAMS_WEBHOOK_URL }}
-        PowerBIMonitorUrl: ${{ env.POWERBI_MONITOR_URL }}
-        PowerBIMetricsUrl: ${{ env.POWERBI_METRICS_URL }}
+        PowerBIMonitorUrl: ${{ env.POWERBI_MONITOR_PUSH_URL }}
+        PowerBIMetricsUrl: ${{ env.POWERBI_METRICS_PUSH_URL }}
         
     - name: Upload crisis logs
       uses: actions/upload-artifact@v4
@@ -109,7 +103,7 @@ jobs:
         
         Invoke-RestMethod -Uri $env:TEAMS_WEBHOOK_URL -Method Post -Body ($crisisMessage | ConvertTo-Json -Depth 10) -ContentType "application/json"
       env:
-        TEAMS_WEBHOOK_URL: ${{ env.TEAMS_WEBHOOK_URL }}
+        TEAMS_WEBHOOK: ${{ env.TEAMS_WEBHOOK }}
 
   python-crisis-automation:
     runs-on: windows-latest
@@ -133,16 +127,16 @@ jobs:
       run: |
         python integrations/notion_lab_manager.py
       env:
-        NOTION_TOKEN: ${{ env.NOTION_TOKEN }}
+        NOTION_API_TOKEN: ${{ env.NOTION_API_TOKEN }}
         TEAMS_WEBHOOK_URL: ${{ env.TEAMS_WEBHOOK_URL }}
-        POWERBI_MONITOR_URL: ${{ env.POWERBI_MONITOR_URL }}
-        POWERBI_METRICS_URL: ${{ env.POWERBI_METRICS_URL }}
+        POWERBI_MONITOR_PUSH_URL: ${{ env.POWERBI_MONITOR_PUSH_URL }}
+        POWERBI_METRICS_PUSH_URL: ${{ env.POWERBI_METRICS_PUSH_URL }}
         
     - name: Generate crisis report
       run: |
         python scripts/generate_crisis_report.py
       env:
-        NOTION_TOKEN: ${{ env.NOTION_TOKEN }}
+        NOTION_API_TOKEN: ${{ env.NOTION_API_TOKEN }}
         TEAMS_WEBHOOK_URL: ${{ env.TEAMS_WEBHOOK_URL }}
         
     - name: Upload crisis report
@@ -175,7 +169,7 @@ jobs:
       run: |
         node scripts/update_crisis_dashboard.js
       env:
-        NOTION_TOKEN: ${{ env.NOTION_TOKEN }}
+        NOTION_API_TOKEN: ${{ env.NOTION_API_TOKEN }}
         NOTION_LAB_MANAGEMENT_CENTER: ${{ env.NOTION_LAB_MANAGEMENT_CENTER }}
         
     - name: Send crisis summary to Teams

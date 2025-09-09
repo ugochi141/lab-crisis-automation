@@ -1,0 +1,112 @@
+# notion_updater.py
+import os
+import time
+import json
+import pandas as pd
+from datetime import datetime
+from pathlib import Path
+from notion_client import Client
+from watchdog.observers import Observer
+from watchdog.events import FileSystemEventHandler
+import schedule
+import logging
+
+# ============ CONFIGURATION ============
+CONFIG = {
+    'NOTION_TOKEN': 'secret_YOUR_NOTION_API_KEY',  # Replace with your actual key
+    'LOCAL_FOLDER': '/Users/ugochi141/Desktop/LabAutomation/data',
+    'DATABASES': {
+        'tat_tracking': 'YOUR_DATABASE_ID_1',
+        'staff_performance': 'YOUR_DATABASE_ID_2',
+        'station_status': 'YOUR_DATABASE_ID_3',
+        'alerts': 'YOUR_DATABASE_ID_4',
+        'dashboard': 'YOUR_DATABASE_ID_5'
+    },
+    'FILE_MAPPINGS': {
+        'tat_report.csv': 'tat_tracking',
+        'staff_daily.xlsx': 'staff_performance',
+        'stations.json': 'station_status',
+        'alerts.txt': 'alerts',
+        'dashboard.csv': 'dashboard'
+    }
+}
+
+# Setup logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(message)s',
+    handlers=[
+        logging.FileHandler('/Users/ugochi141/Desktop/LabAutomation/sync.log'),
+        logging.StreamHandler()
+    ]
+)
+
+class NotionUpdater:
+    def __init__(self):
+        self.notion = Client(auth=CONFIG['NOTION_TOKEN'])
+        self.local_folder = Path(CONFIG['LOCAL_FOLDER'])
+        self.local_folder.mkdir(parents=True, exist_ok=True)
+        self.last_sync = {}
+        logging.info(f"Monitoring: {self.local_folder}")
+    
+    def process_csv_file(self, filepath, database_name):
+        try:
+            df = pd.read_csv(filepath)
+            database_id = CONFIG['DATABASES'][database_name]
+            
+            for _, row in df.iterrows():
+                if database_name == 'tat_tracking':
+                    self.update_tat_tracking(row, database_id)
+                elif database_name == 'dashboard':
+                    self.update_dashboard(row, database_id)
+            
+            logging.info(f"✓ Synced {filepath.name}")
+        except Exception as e:
+            logging.error(f"Error: {e}")
+    
+    def update_tat_tracking(self, row, database_id):
+        properties = {
+            "Sample ID": {"title": [{"text": {"content": str(row.get('sample_id', ''))}}]},
+            "TAT Minutes": {"number": float(row.get('tat_minutes', 0))},
+            "Met Target": {"checkbox": row.get('tat_minutes', 999) <= 45}
+        }
+        self.notion.pages.create(parent={"database_id": database_id}, properties=properties)
+    
+    def update_dashboard(self, row, database_id):
+        properties = {
+            "Timestamp": {"title": [{"text": {"content": datetime.now().strftime('%H:%M')}}]},
+            "Wait Time": {"number": float(row.get('wait_time', 0))},
+            "TAT Rate": {"number": float(row.get('tat_rate', 0))}
+        }
+        self.notion.pages.create(parent={"database_id": database_id}, properties=properties)
+    
+    def scan_folder(self):
+        logging.info("Scanning for changes...")
+        for filename, database in CONFIG['FILE_MAPPINGS'].items():
+            filepath = self.local_folder / filename
+            if filepath.exists():
+                mtime = filepath.stat().st_mtime
+                if mtime > self.last_sync.get(filename, 0):
+                    if filename.endswith('.csv'):
+                        self.process_csv_file(filepath, database)
+                    self.last_sync[filename] = mtime
+
+def main():
+    print("\n=== Lab Automation Notion Sync ===")
+    print(f"Monitoring: {CONFIG['LOCAL_FOLDER']}")
+    print("Press Ctrl+C to stop\n")
+    
+    updater = NotionUpdater()
+    updater.scan_folder()
+    
+    # Check every 30 seconds
+    while True:
+        try:
+            time.sleep(30)
+            updater.scan_folder()
+        except KeyboardInterrupt:
+            print("\nStopped")
+            break
+
+if __name__ == "__main__":
+    main()

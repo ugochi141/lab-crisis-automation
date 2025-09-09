@@ -120,70 +120,72 @@ class LabAutomationCore:
         return logger
     
     def _initialize_clients(self) -> None:
-        """Initialize all integration clients"""
-        try:
-            # Core integrations (required)
-            self.notion_client = NotionClient(self.config_manager.get_notion_config())
-            self.powerbi_client = PowerBIClient(self.config_manager.get_powerbi_config())
-            self.teams_client = TeamsClient(self.config_manager.get_teams_config())
-            
-            # Optional integrations (may not be configured yet)
-            try:
-                self.epic_client = EpicBeakerClient(self.config_manager.get_epic_beaker_config())
-            except ValueError:
-                self.epic_client = None
-                self.logger.warning("Epic Beaker client not configured")
-            
-            try:
-                self.qmatic_client = QmaticClient(self.config_manager.get_qmatic_config())
-            except ValueError:
-                self.qmatic_client = None
-                self.logger.warning("Qmatic client not configured")
-            
-            try:
-                self.biorad_client = BioRadClient(self.config_manager.get_biorad_config())
-            except ValueError:
-                self.biorad_client = None
-                self.logger.warning("Bio-Rad Unity client not configured")
-            
-            try:
-                self.hrconnect_client = HRConnectClient(self.config_manager.get_hrconnect_config())
-            except ValueError:
-                self.hrconnect_client = None
-                self.logger.warning("HR Connect client not configured")
-            
-            self.logger.info("Integration clients initialized successfully")
-            
-        except Exception as e:
-            self.logger.error(f"Failed to initialize clients: {e}")
-            raise
+        """Initialize all integration clients with health checks and auto-retry"""
+        def safe_init(client_cls, config_func, name):
+            for attempt in range(3):
+                try:
+                    client = client_cls(config_func())
+                    self.logger.info(f"{name} client initialized (attempt {attempt+1})")
+                    return client
+                except Exception as e:
+                    self.logger.warning(f"{name} client init failed (attempt {attempt+1}): {e}")
+                    asyncio.sleep(1)
+            self.logger.error(f"{name} client could not be initialized after 3 attempts")
+            return None
+
+        # Core integrations (required)
+        self.notion_client = safe_init(NotionClient, self.config_manager.get_notion_config, "Notion")
+        self.powerbi_client = safe_init(PowerBIClient, self.config_manager.get_powerbi_config, "PowerBI")
+        self.teams_client = safe_init(TeamsClient, self.config_manager.get_teams_config, "Teams")
+
+        # Optional integrations (may not be configured yet)
+        self.epic_client = safe_init(EpicBeakerClient, self.config_manager.get_epic_beaker_config, "Epic Beaker")
+        self.qmatic_client = safe_init(QmaticClient, self.config_manager.get_qmatic_config, "Qmatic")
+        self.biorad_client = safe_init(BioRadClient, self.config_manager.get_biorad_config, "Bio-Rad Unity")
+        self.hrconnect_client = safe_init(HRConnectClient, self.config_manager.get_hrconnect_config, "HR Connect")
+
+        self.logger.info("Integration clients initialized with health checks.")
+
+    def reload_clients(self):
+        """Hot-reload all integration clients (e.g., after config change)"""
+        self.logger.info("Reloading integration clients...")
+        self._initialize_clients()
+        self.logger.info("Integration clients reloaded.")
     
     async def start_monitoring(self) -> None:
-        """Start the continuous monitoring loop"""
+        """Start the continuous monitoring loop with error resilience and auto-reload"""
         if self.is_running:
             self.logger.warning("Monitoring is already running")
             return
-        
+
         self.is_running = True
         self.logger.info("Starting lab automation monitoring")
-        
+
         # Send startup notification
         await self.teams_client.send_alert(
             "🚀 Lab Automation System Started",
             "Lab automation monitoring is now active.",
             "info"
         )
-        
-        # Main monitoring loop
+
         operational_settings = self.config_manager.get_operational_settings()
-        
+        error_count = 0
         try:
             while self.is_running:
-                await self._monitoring_cycle()
+                try:
+                    await self._monitoring_cycle()
+                    error_count = 0  # Reset on success
+                except Exception as e:
+                    error_count += 1
+                    self.logger.error(f"Monitoring cycle error (attempt {error_count}): {e}")
+                    if error_count >= 3:
+                        self.logger.error("Too many consecutive errors, reloading clients...")
+                        self.reload_clients()
+                        error_count = 0
+                    await asyncio.sleep(5)
                 await asyncio.sleep(operational_settings.monitoring_interval_seconds)
-                
         except Exception as e:
-            self.logger.error(f"Monitoring loop error: {e}")
+            self.logger.error(f"Monitoring loop fatal error: {e}")
             await self.teams_client.send_alert(
                 "🚨 System Error",
                 f"Lab automation monitoring encountered an error: {e}",
@@ -558,3 +560,4 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+

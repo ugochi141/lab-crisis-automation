@@ -17,9 +17,10 @@ on:
         - development
 
 env:
-  NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-  TEAMS_WEBHOOK: ${{ secrets.TEAMS_WEBHOOK }}
-  POWERBI_ENDPOINT: ${{ secrets.POWERBI_ENDPOINT }}
+  NOTION_API_TOKEN: ${{ secrets.NOTION_API_TOKEN }}
+  TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
+  POWERBI_MONITOR_PUSH_URL: ${{ secrets.POWERBI_MONITOR_PUSH_URL }}
+  POWERBI_METRICS_PUSH_URL: ${{ secrets.POWERBI_METRICS_PUSH_URL }}
   NOTION_ALERTS_DB_ID: ${{ secrets.NOTION_ALERTS_DB_ID }}
 
 jobs:
@@ -43,12 +44,16 @@ jobs:
         
     - name: Validate environment variables
       run: |
-        if (-not $env:NOTION_TOKEN) {
-          Write-Error "NOTION_TOKEN is not set"
+        if (-not $env:NOTION_API_TOKEN) {
+          Write-Error "NOTION_API_TOKEN is not set"
           exit 1
         }
-        if (-not $env:TEAMS_WEBHOOK) {
-          Write-Error "TEAMS_WEBHOOK is not set"
+        if (-not $env:TEAMS_WEBHOOK_URL) {
+          Write-Error "TEAMS_WEBHOOK_URL is not set"
+          exit 1
+        }
+        if (-not $env:POWERBI_MONITOR_PUSH_URL) {
+          Write-Error "POWERBI_MONITOR_PUSH_URL is not set"
           exit 1
         }
         Write-Host "Environment variables validated successfully"
@@ -57,9 +62,10 @@ jobs:
       run: |
         .\scripts\lab_alert_forwarding.ps1
       env:
-        NOTION_TOKEN: ${{ env.NOTION_TOKEN }}
-        TEAMS_WEBHOOK: ${{ env.TEAMS_WEBHOOK }}
-        POWERBI_ENDPOINT: ${{ env.POWERBI_ENDPOINT }}
+        NOTION_API_TOKEN: ${{ env.NOTION_API_TOKEN }}
+        TEAMS_WEBHOOK_URL: ${{ env.TEAMS_WEBHOOK_URL }}
+        POWERBI_MONITOR_PUSH_URL: ${{ env.POWERBI_MONITOR_PUSH_URL }}
+        POWERBI_METRICS_PUSH_URL: ${{ env.POWERBI_METRICS_PUSH_URL }}
         NOTION_ALERTS_DB_ID: ${{ env.NOTION_ALERTS_DB_ID }}
         
     - name: Upload logs
@@ -93,7 +99,7 @@ jobs:
         
         Invoke-RestMethod -Uri $env:TEAMS_WEBHOOK -Method Post -Body ($errorMessage | ConvertTo-Json -Depth 10) -ContentType "application/json"
       env:
-        TEAMS_WEBHOOK: ${{ env.TEAMS_WEBHOOK }}
+        TEAMS_WEBHOOK_URL: ${{ env.TEAMS_WEBHOOK_URL }}
 
   performance-monitoring:
     runs-on: windows-latest
@@ -117,14 +123,14 @@ jobs:
       run: |
         python integrations/notion_lab_automation.py
       env:
-        NOTION_TOKEN: ${{ env.NOTION_TOKEN }}
-        TEAMS_WEBHOOK: ${{ env.TEAMS_WEBHOOK }}
+        NOTION_API_TOKEN: ${{ env.NOTION_API_TOKEN }}
+        TEAMS_WEBHOOK_URL: ${{ env.TEAMS_WEBHOOK_URL }}
         
     - name: Generate performance report
       run: |
         python scripts/generate_performance_report.py
       env:
-        NOTION_TOKEN: ${{ env.NOTION_TOKEN }}
+        NOTION_API_TOKEN: ${{ env.NOTION_API_TOKEN }}
         
     - name: Upload performance report
       uses: actions/upload-artifact@v4
@@ -156,7 +162,7 @@ jobs:
       run: |
         node scripts/update_dashboard.js
       env:
-        NOTION_TOKEN: ${{ env.NOTION_TOKEN }}
+        NOTION_API_TOKEN: ${{ env.NOTION_API_TOKEN }}
         NOTION_DATABASE_ID: ${{ secrets.NOTION_DASHBOARD_DB_ID }}
         
     - name: Deploy dashboard

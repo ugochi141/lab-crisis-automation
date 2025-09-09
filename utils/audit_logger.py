@@ -526,3 +526,4 @@ class AuditLogger:
             
         except Exception as e:
             return {"error": f"Failed to verify audit integrity: {e}"}
+

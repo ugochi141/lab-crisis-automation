@@ -353,3 +353,4 @@ if __name__ == "__main__":
     
     print(f"\n📈 Results: {forwarded}/{len(test_scenarios)} alerts would be forwarded")
     print("\n✅ Alert system test complete!")
+

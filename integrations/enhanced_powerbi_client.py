@@ -382,3 +382,4 @@ async def create_enhanced_powerbi_client() -> EnhancedPowerBIClient:
         raise ValueError("Power BI push URLs not configured")
     
     return EnhancedPowerBIClient(monitor_push_url, metrics_push_url)
+

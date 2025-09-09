@@ -466,3 +466,4 @@ class TeamsClient:
         """Close the client session"""
         if self.session:
             await self.session.close()
+

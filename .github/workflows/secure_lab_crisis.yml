@@ -17,7 +17,6 @@ on:
         - development
 
 env:
-  # These will be set as GitHub Secrets
   NOTION_API_TOKEN: ${{ secrets.NOTION_API_TOKEN }}
   NOTION_PERFORMANCE_DB_ID: ${{ secrets.NOTION_PERFORMANCE_DB_ID }}
   NOTION_INCIDENT_DB_ID: ${{ secrets.NOTION_INCIDENT_DB_ID }}
@@ -51,12 +50,12 @@ jobs:
         
     - name: Validate environment variables
       run: |
-        if (-not $env:NOTION_API_TOKEN) {
-          Write-Error "NOTION_API_TOKEN is not set"
+        if (-not $env:NOTION_TOKEN) {
+          Write-Error "NOTION_TOKEN is not set"
           exit 1
         }
-        if (-not $env:TEAMS_WEBHOOK_URL) {
-          Write-Error "TEAMS_WEBHOOK_URL is not set"
+        if (-not $env:TEAMS_WEBHOOK) {
+          Write-Error "TEAMS_WEBHOOK is not set"
           exit 1
         }
         Write-Host "Environment variables validated successfully"
@@ -99,7 +98,6 @@ jobs:
             }
           )
         }
-        
         Invoke-RestMethod -Uri $env:TEAMS_WEBHOOK_URL -Method Post -Body ($errorMessage | ConvertTo-Json -Depth 10) -ContentType "application/json"
       env:
         TEAMS_WEBHOOK_URL: ${{ env.TEAMS_WEBHOOK_URL }}
