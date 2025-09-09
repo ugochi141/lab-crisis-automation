@@ -58,7 +58,7 @@ jobs:
         
     - name: Run crisis monitoring script
       run: |
-        .\scripts\lab_crisis_monitoring.ps1
+        .\scripts\lab_crisis_monitoring_simple.ps1
       env:
         NotionToken: ${{ env.NOTION_API_TOKEN }}
         TeamsWebhook: ${{ env.TEAMS_WEBHOOK_URL }}
@@ -116,11 +116,11 @@ jobs:
         
     - name: Install crisis dependencies
       run: |
-        pip install notion-client pandas schedule requests aiohttp
+        echo "No dependencies needed for simplified script"
         
     - name: Run Python crisis automation
       run: |
-        python integrations/notion_lab_manager.py
+        python scripts/notion_lab_manager_simple.py
       env:
         NOTION_API_TOKEN: ${{ env.NOTION_API_TOKEN }}
         TEAMS_WEBHOOK_URL: ${{ env.TEAMS_WEBHOOK_URL }}
