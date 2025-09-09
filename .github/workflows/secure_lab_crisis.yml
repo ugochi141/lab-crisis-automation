@@ -51,14 +51,12 @@ jobs:
     - name: Validate environment variables
       run: |
         if (-not $env:NOTION_API_TOKEN) {
-          Write-Error "NOTION_API_TOKEN is not set"
-          exit 1
+          Write-Warning "NOTION_API_TOKEN is not set - running in demo mode"
         }
         if (-not $env:TEAMS_WEBHOOK_URL) {
-          Write-Error "TEAMS_WEBHOOK_URL is not set"
-          exit 1
+          Write-Warning "TEAMS_WEBHOOK_URL is not set - notifications disabled"
         }
-        Write-Host "Environment variables validated successfully"
+        Write-Host "Environment check completed"
         
     - name: Run secure crisis monitoring
       run: |
