@@ -32,11 +32,6 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-      
-    - name: Setup PowerShell
-      uses: actions/setup-powershell@v1
-      with:
-        version: '7.3'
         
     - name: Create logs directory
       run: |
@@ -103,7 +98,7 @@ jobs:
         
         Invoke-RestMethod -Uri $env:TEAMS_WEBHOOK_URL -Method Post -Body ($crisisMessage | ConvertTo-Json -Depth 10) -ContentType "application/json"
       env:
-        TEAMS_WEBHOOK: ${{ env.TEAMS_WEBHOOK }}
+        TEAMS_WEBHOOK_URL: ${{ env.TEAMS_WEBHOOK_URL }}
 
   python-crisis-automation:
     runs-on: windows-latest
