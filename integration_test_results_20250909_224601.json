@@ -1,0 +1,81 @@
+{
+  "summary": {
+    "total_tests": 10,
+    "passed": 5,
+    "failed": 5,
+    "success_rate": 50.0,
+    "test_date": "2025-09-09T22:46:01.551901"
+  },
+  "results": [
+    {
+      "test": "Notion Connection",
+      "success": false,
+      "message": "NOTION_API_TOKEN not set",
+      "timestamp": "2025-09-09T22:46:01.547645",
+      "details": null
+    },
+    {
+      "test": "Notion Database",
+      "success": false,
+      "message": "Token or Database ID not set",
+      "timestamp": "2025-09-09T22:46:01.547653",
+      "details": null
+    },
+    {
+      "test": "Create Notion Entry",
+      "success": false,
+      "message": "Token or Database ID not set",
+      "timestamp": "2025-09-09T22:46:01.547655",
+      "details": null
+    },
+    {
+      "test": "Teams Webhook",
+      "success": false,
+      "message": "TEAMS_WEBHOOK_URL not set",
+      "timestamp": "2025-09-09T22:46:01.547657",
+      "details": null
+    },
+    {
+      "test": "GitHub Dispatch",
+      "success": false,
+      "message": "GITHUB_TOKEN not set",
+      "timestamp": "2025-09-09T22:46:01.547658",
+      "details": null
+    },
+    {
+      "test": "Keyword Detection: Chemistry analyzer down - need...",
+      "success": true,
+      "message": "Detected: ['stat', 'analyzer down'], Severity: Critical",
+      "timestamp": "2025-09-09T22:46:01.547665",
+      "details": null
+    },
+    {
+      "test": "Keyword Detection: Calling out sick today - can't...",
+      "success": true,
+      "message": "Detected: ['calling out', 'sick today'], Severity: High",
+      "timestamp": "2025-09-09T22:46:01.547670",
+      "details": null
+    },
+    {
+      "test": "Keyword Detection: Running late due to traffic...",
+      "success": true,
+      "message": "Detected: ['late'], Severity: Medium",
+      "timestamp": "2025-09-09T22:46:01.547674",
+      "details": null
+    },
+    {
+      "test": "Keyword Detection: FMLA paperwork due next week...",
+      "success": true,
+      "message": "Detected: ['fmla'], Severity: Compliance",
+      "timestamp": "2025-09-09T22:46:01.547676",
+      "details": null
+    },
+    {
+      "test": "Keyword Detection: Schedule change for tomorrow...",
+      "success": true,
+      "message": "Detected: ['schedule'], Severity: Low",
+      "timestamp": "2025-09-09T22:46:01.547679",
+      "details": null
+    }
+  ]
+}

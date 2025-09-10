@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-09-09T18:45:16.318612",
+  "timestamp": "2025-09-09T19:49:30.295165",
   "repositories": [
     {
       "name": "LabAutomation",
@@ -7,17 +7,15 @@
       "type": "main",
       "language": "python",
       "metrics": {
-        "python_files": 3221,
-        "total_lines": 1324495,
+        "python_files": 3224,
+        "total_lines": 1325523,
         "has_tests": true,
         "has_documentation": true,
-        "uncommitted_changes": 11,
-        "last_commit": "43 minutes ago"
+        "uncommitted_changes": 8,
+        "last_commit": "19 minutes ago"
       },
-      "issues": [
-        "11 uncommitted changes"
-      ],
-      "status": "needs_attention"
+      "issues": [],
+      "status": "healthy"
     },
     {
       "name": "Critical-Values-Alert-System",
@@ -82,10 +80,10 @@
         "total_lines": 104,
         "has_tests": false,
         "has_documentation": false,
-        "uncommitted_changes": 358
+        "uncommitted_changes": 383
       },
       "issues": [
-        "358 uncommitted changes",
+        "383 uncommitted changes",
         "No tests found",
         "Missing documentation"
       ],
@@ -112,19 +110,13 @@
   ],
   "summary": {
     "total_repositories": 6,
-    "healthy": 0,
-    "needs_attention": 6,
+    "healthy": 1,
+    "needs_attention": 5,
     "with_tests": 1,
     "with_documentation": 5,
-    "total_uncommitted_changes": 376
+    "total_uncommitted_changes": 398
   },
   "recommendations": [
-    {
-      "repository": "LabAutomation",
-      "priority": "high",
-      "action": "Commit or stash changes",
-      "benefit": "Maintain clean repository state"
-    },
     {
       "repository": "Critical-Values-Alert-System",
       "priority": "high",

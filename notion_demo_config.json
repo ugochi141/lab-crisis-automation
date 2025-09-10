@@ -1,0 +1,49 @@
+{
+  "database_id": "demo_database_id_replace_with_actual",
+  "integration_token": "secret_demo_token_replace_with_actual",
+  "database_url": "https://notion.so/your-workspace/demo-database",
+  "setup_instructions": {
+    "step_1": "Go to https://notion.so/my-integrations",
+    "step_2": "Create new integration named 'Kaiser Lab Automation'",
+    "step_3": "Copy the integration token",
+    "step_4": "Create database using provided schema",
+    "step_5": "Share database with integration",
+    "step_6": "Copy database ID from URL",
+    "step_7": "Update environment variables"
+  },
+  "test_entry": {
+    "parent": {
+      "database_id": "YOUR_DATABASE_ID"
+    },
+    "properties": {
+      "Alert ID": {
+        "title": [
+          {
+            "text": {
+              "content": "DEMO-001"
+            }
+          }
+        ]
+      },
+      "Severity": {
+        "select": {
+          "name": "\ud83d\udd34 Critical"
+        }
+      },
+      "Message": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Demo alert - system is working"
+            }
+          }
+        ]
+      },
+      "Status": {
+        "select": {
+          "name": "\ud83d\udfe5 Open"
+        }
+      }
+    }
+  }
+}

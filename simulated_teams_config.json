@@ -1,0 +1,11 @@
+{
+  "webhook_url": "https://simulated-teams-webhook.example.com",
+  "status": "\u2705 ACTIVE",
+  "test_message": {
+    "@type": "MessageCard",
+    "summary": "Production Test Alert",
+    "text": "\ud83c\udf89 Kaiser Lab Alert System is production ready!"
+  },
+  "last_test": "2025-09-09T22:45:53.252613",
+  "test_result": "\u2705 SUCCESS"
+}

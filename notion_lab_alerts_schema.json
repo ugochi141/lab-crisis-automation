@@ -1,0 +1,270 @@
+{
+  "database_name": "🚨 Kaiser Lab Alerts & Tasks",
+  "description": "Comprehensive lab alert tracking and task management system",
+  "properties": {
+    "Alert ID": {
+      "type": "title",
+      "description": "Unique identifier for each alert",
+      "example": "ALERT-20241201-143052"
+    },
+    "Severity": {
+      "type": "select",
+      "description": "Alert priority level",
+      "options": [
+        {
+          "name": "🔴 Critical",
+          "color": "red",
+          "description": "Immediate action required - patient safety, system down, no coverage"
+        },
+        {
+          "name": "🟠 High", 
+          "color": "orange",
+          "description": "Urgent attention needed - staffing issues, equipment failure"
+        },
+        {
+          "name": "🟡 Medium",
+          "color": "yellow", 
+          "description": "Review needed - delays, supply issues, maintenance"
+        },
+        {
+          "name": "🔵 Low",
+          "color": "blue",
+          "description": "Information only - routine notifications, scheduling"
+        },
+        {
+          "name": "🟣 Compliance",
+          "color": "purple",
+          "description": "HR compliance - FMLA, certifications, disciplinary actions"
+        }
+      ]
+    },
+    "Message": {
+      "type": "rich_text",
+      "description": "Original alert message content",
+      "character_limit": 2000
+    },
+    "Keywords Detected": {
+      "type": "multi_select",
+      "description": "Keywords that triggered the alert",
+      "options": [
+        {"name": "STAT", "color": "red"},
+        {"name": "critical value", "color": "red"},
+        {"name": "emergency", "color": "red"},
+        {"name": "system down", "color": "red"},
+        {"name": "no coverage", "color": "red"},
+        {"name": "calling out", "color": "orange"},
+        {"name": "sick today", "color": "orange"},
+        {"name": "short staffed", "color": "orange"},
+        {"name": "QC failure", "color": "orange"},
+        {"name": "TAT breach", "color": "yellow"},
+        {"name": "late", "color": "yellow"},
+        {"name": "supplies low", "color": "yellow"},
+        {"name": "FMLA", "color": "purple"},
+        {"name": "medical leave", "color": "purple"},
+        {"name": "disciplinary action", "color": "purple"}
+      ]
+    },
+    "Timestamp": {
+      "type": "date",
+      "description": "When the alert was created",
+      "format": "datetime"
+    },
+    "Department": {
+      "type": "select",
+      "description": "Affected department",
+      "options": [
+        {"name": "Chemistry", "color": "blue"},
+        {"name": "Hematology", "color": "red"},
+        {"name": "Microbiology", "color": "green"},
+        {"name": "Blood Bank", "color": "red"},
+        {"name": "Phlebotomy", "color": "orange"},
+        {"name": "IT Systems", "color": "gray"},
+        {"name": "Administration", "color": "default"},
+        {"name": "Unknown", "color": "gray"}
+      ]
+    },
+    "Assigned To": {
+      "type": "people",
+      "description": "Person responsible for addressing the alert"
+    },
+    "Status": {
+      "type": "select", 
+      "description": "Current status of the alert",
+      "options": [
+        {
+          "name": "🟥 Open",
+          "color": "red",
+          "description": "Alert received, no action taken yet"
+        },
+        {
+          "name": "🟨 In Progress", 
+          "color": "yellow",
+          "description": "Alert acknowledged, work in progress"
+        },
+        {
+          "name": "🟩 Resolved",
+          "color": "green", 
+          "description": "Issue resolved, no further action needed"
+        },
+        {
+          "name": "🟦 Escalated",
+          "color": "blue",
+          "description": "Escalated to higher authority"
+        },
+        {
+          "name": "⚫ Closed",
+          "color": "gray",
+          "description": "Alert closed, archived for records"
+        }
+      ]
+    },
+    "Response Time": {
+      "type": "number",
+      "description": "Time to first response in minutes",
+      "format": "number"
+    },
+    "Resolution Time": {
+      "type": "number", 
+      "description": "Total time to resolution in minutes",
+      "format": "number"
+    },
+    "Follow-up Required": {
+      "type": "checkbox",
+      "description": "Whether follow-up action is needed"
+    },
+    "Resolution Notes": {
+      "type": "rich_text",
+      "description": "Notes about how the alert was resolved"
+    },
+    "Source": {
+      "type": "select",
+      "description": "How the alert was received",
+      "options": [
+        {"name": "Teams Message", "color": "blue"},
+        {"name": "Power Automate", "color": "purple"}, 
+        {"name": "Manual Entry", "color": "gray"},
+        {"name": "System Monitor", "color": "green"},
+        {"name": "GitHub Webhook", "color": "gray"}
+      ]
+    }
+  },
+  "views": {
+    "active_alerts": {
+      "name": "🚨 Active Alerts",
+      "type": "table",
+      "filter": {
+        "and": [
+          {"property": "Status", "select": {"does_not_equal": "🟩 Resolved"}},
+          {"property": "Status", "select": {"does_not_equal": "⚫ Closed"}}
+        ]
+      },
+      "sort": [
+        {"property": "Severity", "direction": "ascending"},
+        {"property": "Timestamp", "direction": "descending"}
+      ]
+    },
+    "critical_dashboard": {
+      "name": "🔴 Critical Only",
+      "type": "gallery",
+      "filter": {
+        "property": "Severity",
+        "select": {"equals": "🔴 Critical"}
+      },
+      "sort": [
+        {"property": "Timestamp", "direction": "descending"}
+      ]
+    },
+    "department_board": {
+      "name": "🏥 By Department",
+      "type": "board", 
+      "group_by": "Department",
+      "sort": [
+        {"property": "Timestamp", "direction": "descending"}
+      ]
+    },
+    "status_tracker": {
+      "name": "📊 Status Tracker",
+      "type": "board",
+      "group_by": "Status",
+      "sort": [
+        {"property": "Severity", "direction": "ascending"},
+        {"property": "Timestamp", "direction": "descending"}
+      ]
+    },
+    "performance_metrics": {
+      "name": "⏱️ Performance Metrics",
+      "type": "table",
+      "filter": {
+        "property": "Status",
+        "select": {"equals": "🟩 Resolved"}
+      },
+      "properties": ["Alert ID", "Severity", "Department", "Response Time", "Resolution Time", "Timestamp"],
+      "sort": [
+        {"property": "Resolution Time", "direction": "descending"}
+      ]
+    }
+  },
+  "automation_templates": {
+    "notion_api_request": {
+      "method": "POST",
+      "url": "https://api.notion.com/v1/pages",
+      "headers": {
+        "Authorization": "Bearer YOUR_NOTION_TOKEN",
+        "Content-Type": "application/json",
+        "Notion-Version": "2022-06-28"
+      },
+      "body_template": {
+        "parent": {
+          "database_id": "YOUR_DATABASE_ID"
+        },
+        "properties": {
+          "Alert ID": {
+            "title": [{"text": {"content": "ALERT-{timestamp}"}}]
+          },
+          "Severity": {
+            "select": {"name": "{severity}"}
+          },
+          "Message": {
+            "rich_text": [{"text": {"content": "{message}"}}]
+          },
+          "Keywords Detected": {
+            "multi_select": [{"name": "{keyword}"}]
+          },
+          "Timestamp": {
+            "date": {"start": "{iso_timestamp}"}
+          },
+          "Department": {
+            "select": {"name": "{department}"}
+          },
+          "Status": {
+            "select": {"name": "🟥 Open"}
+          },
+          "Follow-up Required": {
+            "checkbox": "{follow_up_required}"
+          },
+          "Source": {
+            "select": {"name": "Power Automate"}
+          }
+        }
+      }
+    }
+  },
+  "power_automate_expressions": {
+    "keyword_detection": "or(contains(toLower(triggerBody()?['body']?['content']), 'stat'),contains(toLower(triggerBody()?['body']?['content']), 'critical value'),contains(toLower(triggerBody()?['body']?['content']), 'emergency'))",
+    "severity_assignment": "if(or(contains(toLower(triggerBody()?['body']?['content']), 'stat'),contains(toLower(triggerBody()?['body']?['content']), 'critical value')), '🔴 Critical', if(contains(toLower(triggerBody()?['body']?['content']), 'calling out'), '🟠 High', '🟡 Medium'))",
+    "alert_id_generation": "concat('ALERT-', formatDateTime(utcNow(), 'yyyyMMdd-HHmmss'))",
+    "department_detection": "if(contains(toLower(triggerBody()?['body']?['content']), 'chemistry'), 'Chemistry', if(contains(toLower(triggerBody()?['body']?['content']), 'hematology'), 'Hematology', if(contains(toLower(triggerBody()?['body']?['content']), 'micro'), 'Microbiology', 'Unknown')))"
+  },
+  "github_webhook_schema": {
+    "event_type": "lab_alert",
+    "client_payload": {
+      "message": "{alert_message}",
+      "severity": "{critical|high|medium|low|compliance}",
+      "timestamp": "{iso_timestamp}",
+      "sender": "{sender_name}",
+      "department": "{department_name}",
+      "alert_id": "{alert_id}",
+      "keywords": ["{detected_keywords}"]
+    }
+  }
+}

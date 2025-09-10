@@ -1,0 +1,23 @@
+{
+  "name": "notion-webhook-server",
+  "description": "Notion webhook server for lab automation system",
+  "repository": "https://github.com/your-username/LabAutomation",
+  "environment": {
+    "NOTION_API_TOKEN_PRIMARY": "${{NOTION_API_TOKEN_PRIMARY}}",
+    "NOTION_API_TOKEN_SECONDARY": "${{NOTION_API_TOKEN_SECONDARY}}",
+    "NOTION_VERSION": "2022-06-28",
+    "NOTION_PERFORMANCE_DB_ID": "${{NOTION_PERFORMANCE_DB_ID}}",
+    "NOTION_INCIDENT_DB_ID": "${{NOTION_INCIDENT_DB_ID}}",
+    "WEBHOOK_PORT": "8080",
+    "NOTION_WEBHOOK_SECRET": "${{NOTION_WEBHOOK_SECRET}}",
+    "FLASK_ENV": "production"
+  },
+  "build": {
+    "commands": [
+      "pip install -r requirements.txt"
+    ]
+  },
+  "start": {
+    "command": "python scripts/notion_webhook_server.py"
+  }
+}

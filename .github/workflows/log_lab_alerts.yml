@@ -1,0 +1,293 @@
+name: Log Lab Alerts
+
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: 'Alert message'
+        required: true
+        type: string
+      severity:
+        description: 'Alert severity'
+        required: true
+        type: choice
+        options:
+        - Critical
+        - High
+        - Medium
+        - Low
+        - Compliance
+      department:
+        description: 'Department'
+        required: false
+        default: 'Unknown'
+        type: string
+      sender:
+        description: 'Alert sender'
+        required: false
+        default: 'System'
+        type: string
+  repository_dispatch:
+    types: [lab_alert]
+
+env:
+  NOTION_API_TOKEN: ${{ secrets.NOTION_API_TOKEN }}
+  NOTION_ALERTS_DB_ID: ${{ secrets.NOTION_ALERTS_DB_ID }}
+  TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
+
+jobs:
+  log_alert:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          pip install requests || true
+
+      - name: Parse incoming alert
+        id: parse_alert
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "message=${{ github.event.inputs.message }}" >> $GITHUB_OUTPUT
+            echo "severity=${{ github.event.inputs.severity }}" >> $GITHUB_OUTPUT
+            echo "department=${{ github.event.inputs.department }}" >> $GITHUB_OUTPUT
+            echo "sender=${{ github.event.inputs.sender }}" >> $GITHUB_OUTPUT
+            echo "timestamp=$(date -u +%Y-%m-%dT%H:%M:%S.%3NZ)" >> $GITHUB_OUTPUT
+            echo "alert_id=ALERT-$(date -u +%Y%m%d-%H%M%S)" >> $GITHUB_OUTPUT
+          else
+            echo "message=${{ github.event.client_payload.message }}" >> $GITHUB_OUTPUT
+            echo "severity=${{ github.event.client_payload.severity }}" >> $GITHUB_OUTPUT
+            echo "department=${{ github.event.client_payload.department || 'Unknown' }}" >> $GITHUB_OUTPUT
+            echo "sender=${{ github.event.client_payload.sender || 'System' }}" >> $GITHUB_OUTPUT
+            echo "timestamp=${{ github.event.client_payload.timestamp }}" >> $GITHUB_OUTPUT
+            echo "alert_id=${{ github.event.client_payload.alert_id }}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Log alert to file
+        run: |
+          mkdir -p alerts
+          cat >> alerts/alerts.md << EOF
+          
+          ## ${{ steps.parse_alert.outputs.alert_id }}
+          
+          **Severity**: ${{ steps.parse_alert.outputs.severity }}
+          **Department**: ${{ steps.parse_alert.outputs.department }}
+          **Sender**: ${{ steps.parse_alert.outputs.sender }}
+          **Timestamp**: ${{ steps.parse_alert.outputs.timestamp }}
+          **Message**: ${{ steps.parse_alert.outputs.message }}
+          
+          ---
+          EOF
+
+      - name: Create Notion database entry
+        if: env.NOTION_API_TOKEN != ''
+        run: |
+          python3 << 'EOF'
+          import os
+          import json
+          import requests
+          from datetime import datetime
+          
+          # Get severity emoji and priority
+          severity_map = {
+              'Critical': {'emoji': '🔴', 'name': '🔴 Critical'},
+              'High': {'emoji': '🟠', 'name': '🟠 High'},
+              'Medium': {'emoji': '🟡', 'name': '🟡 Medium'},
+              'Low': {'emoji': '🔵', 'name': '🔵 Low'},
+              'Compliance': {'emoji': '🟣', 'name': '🟣 Compliance'}
+          }
+          
+          severity = "${{ steps.parse_alert.outputs.severity }}"
+          severity_info = severity_map.get(severity, {'emoji': '⚪', 'name': f'⚪ {severity}'})
+          
+          # Prepare Notion API request
+          headers = {
+              'Authorization': f'Bearer {os.environ["NOTION_API_TOKEN"]}',
+              'Content-Type': 'application/json',
+              'Notion-Version': '2022-06-28'
+          }
+          
+          data = {
+              'parent': {
+                  'database_id': os.environ["NOTION_ALERTS_DB_ID"]
+              },
+              'properties': {
+                  'Alert ID': {
+                      'title': [
+                          {
+                              'text': {
+                                  'content': "${{ steps.parse_alert.outputs.alert_id }}"
+                              }
+                          }
+                      ]
+                  },
+                  'Severity': {
+                      'select': {
+                          'name': severity_info['name']
+                      }
+                  },
+                  'Message': {
+                      'rich_text': [
+                          {
+                              'text': {
+                                  'content': "${{ steps.parse_alert.outputs.message }}"[:2000]
+                              }
+                          }
+                      ]
+                  },
+                  'Timestamp': {
+                      'date': {
+                          'start': "${{ steps.parse_alert.outputs.timestamp }}"
+                      }
+                  },
+                  'Department': {
+                      'select': {
+                          'name': "${{ steps.parse_alert.outputs.department }}"
+                      }
+                  },
+                  'Status': {
+                      'select': {
+                          'name': '🟥 Open'
+                      }
+                  },
+                  'Follow-up Required': {
+                      'checkbox': severity in ['Critical', 'High']
+                  }
+              }
+          }
+          
+          try:
+              response = requests.post(
+                  'https://api.notion.com/v1/pages',
+                  headers=headers,
+                  json=data
+              )
+              
+              if response.status_code == 200:
+                  print("✅ Alert logged to Notion successfully")
+              else:
+                  print(f"❌ Failed to log to Notion: {response.status_code}")
+                  print(response.text)
+                  
+          except Exception as e:
+              print(f"❌ Error logging to Notion: {e}")
+          EOF
+
+      - name: Send Teams notification for critical alerts
+        if: env.TEAMS_WEBHOOK_URL != '' && (steps.parse_alert.outputs.severity == 'Critical' || steps.parse_alert.outputs.severity == 'High')
+        run: |
+          python3 << 'EOF'
+          import os
+          import json
+          import requests
+          
+          severity = "${{ steps.parse_alert.outputs.severity }}"
+          color = "FF0000" if severity == "Critical" else "FFA500"
+          
+          teams_message = {
+              "@type": "MessageCard",
+              "@context": "http://schema.org/extensions",
+              "themeColor": color,
+              "summary": f"{severity} Lab Alert",
+              "sections": [
+                  {
+                      "activityTitle": f"🚨 {severity.upper()} LAB ALERT",
+                      "activitySubtitle": "${{ steps.parse_alert.outputs.department }} Department",
+                      "facts": [
+                          {"name": "Alert ID", "value": "${{ steps.parse_alert.outputs.alert_id }}"},
+                          {"name": "Severity", "value": "${{ steps.parse_alert.outputs.severity }}"},
+                          {"name": "Sender", "value": "${{ steps.parse_alert.outputs.sender }}"},
+                          {"name": "Time", "value": "${{ steps.parse_alert.outputs.timestamp }}"},
+                          {"name": "Message", "value": "${{ steps.parse_alert.outputs.message }}"[:500]}
+                      ],
+                      "markdown": True
+                  }
+              ],
+              "potentialAction": [
+                  {
+                      "@type": "OpenUri",
+                      "name": "View Alert Details",
+                      "targets": [
+                          {
+                              "os": "default",
+                              "uri": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                          }
+                      ]
+                  }
+              ]
+          }
+          
+          try:
+              response = requests.post(
+                  os.environ["TEAMS_WEBHOOK_URL"],
+                  json=teams_message,
+                  headers={'Content-Type': 'application/json'}
+              )
+              
+              if response.status_code == 200:
+                  print("✅ Teams notification sent successfully")
+              else:
+                  print(f"❌ Failed to send Teams notification: {response.status_code}")
+                  
+          except Exception as e:
+              print(f"❌ Error sending Teams notification: {e}")
+          EOF
+
+      - name: Create alert summary
+        id: summary
+        run: |
+          echo "## 📊 Alert Processing Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Alert ID**: ${{ steps.parse_alert.outputs.alert_id }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Severity**: ${{ steps.parse_alert.outputs.severity }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Department**: ${{ steps.parse_alert.outputs.department }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Timestamp**: ${{ steps.parse_alert.outputs.timestamp }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Message**: ${{ steps.parse_alert.outputs.message }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### ✅ Actions Completed" >> $GITHUB_STEP_SUMMARY
+          echo "- 📝 Alert logged to file" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ env.NOTION_API_TOKEN }}" != "" ]; then
+            echo "- 🧠 Entry created in Notion database" >> $GITHUB_STEP_SUMMARY
+          fi
+          if [ "${{ env.TEAMS_WEBHOOK_URL }}" != "" ] && [ "${{ steps.parse_alert.outputs.severity }}" = "Critical" -o "${{ steps.parse_alert.outputs.severity }}" = "High" ]; then
+            echo "- 💬 Teams notification sent" >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Commit alert log
+        run: |
+          git config --global user.name 'Kaiser LabOps Bot'
+          git config --global user.email 'labops@kaiser.org'
+          git add alerts/alerts.md
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "🚨 Log lab alert: ${{ steps.parse_alert.outputs.alert_id }}
+
+            Severity: ${{ steps.parse_alert.outputs.severity }}
+            Department: ${{ steps.parse_alert.outputs.department }}
+            Sender: ${{ steps.parse_alert.outputs.sender }}
+            
+            🤖 Generated with [Claude Code](https://claude.ai/code)
+            
+            Co-Authored-By: Claude <noreply@anthropic.com>"
+            git push
+          fi
+
+      - name: Output alert details
+        run: |
+          echo "🚨 Lab Alert Logged Successfully!"
+          echo "================================"
+          echo "Alert ID: ${{ steps.parse_alert.outputs.alert_id }}"
+          echo "Severity: ${{ steps.parse_alert.outputs.severity }}"
+          echo "Department: ${{ steps.parse_alert.outputs.department }}"
+          echo "Sender: ${{ steps.parse_alert.outputs.sender }}"
+          echo "Timestamp: ${{ steps.parse_alert.outputs.timestamp }}"
+          echo "Message: ${{ steps.parse_alert.outputs.message }}"

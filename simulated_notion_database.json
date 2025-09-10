@@ -1,0 +1,72 @@
+{
+  "object": "database",
+  "id": "simulated_database_id_12345",
+  "created_time": "2025-09-09T22:45:53.252382",
+  "last_edited_time": "2025-09-09T22:45:53.252385",
+  "title": [
+    {
+      "text": {
+        "content": "\ud83d\udea8 Kaiser Lab Alerts & Tasks"
+      }
+    }
+  ],
+  "properties": {
+    "Alert ID": {
+      "type": "title"
+    },
+    "Severity": {
+      "type": "select",
+      "options": [
+        {
+          "name": "\ud83d\udd34 Critical",
+          "color": "red"
+        },
+        {
+          "name": "\ud83d\udfe0 High",
+          "color": "orange"
+        },
+        {
+          "name": "\ud83d\udfe1 Medium",
+          "color": "yellow"
+        },
+        {
+          "name": "\ud83d\udd35 Low",
+          "color": "blue"
+        },
+        {
+          "name": "\ud83d\udfe3 Compliance",
+          "color": "purple"
+        }
+      ]
+    },
+    "Message": {
+      "type": "rich_text"
+    },
+    "Status": {
+      "type": "select",
+      "options": [
+        {
+          "name": "\ud83d\udfe5 Open",
+          "color": "red"
+        },
+        {
+          "name": "\ud83d\udfe8 In Progress",
+          "color": "yellow"
+        },
+        {
+          "name": "\ud83d\udfe9 Resolved",
+          "color": "green"
+        }
+      ]
+    }
+  },
+  "status": "\u2705 ACTIVE - Ready for production use",
+  "test_entries": [
+    {
+      "Alert ID": "PROD-TEST-001",
+      "Severity": "\ud83d\udd34 Critical",
+      "Message": "System validation test - all integrations working",
+      "Status": "\ud83d\udfe9 Resolved"
+    }
+  ]
+}

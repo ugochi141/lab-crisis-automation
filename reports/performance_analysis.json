@@ -1,134 +1,31 @@
 {
-  "timestamp": "2025-09-09T18:45:21.688002",
+  "timestamp": "2025-09-09T19:49:34.605166",
+  "performance_score": {
+    "overall": 98,
+    "grade": "A"
+  },
   "lab_operations": {
     "tat_compliance": {
-      "current": 88.5,
-      "target": 90.0,
-      "trend": "improving",
-      "samples_processed": 1250,
-      "average_tat_minutes": 47
+      "current": 95,
+      "target": 95
     },
     "qc_performance": {
-      "pass_rate": 98.7,
-      "target": 98.0,
-      "failures": 16,
-      "total_tests": 1280
+      "pass_rate": 97,
+      "target": 95
     },
-    "staff_efficiency": {
-      "utilization": 82.3,
-      "idle_time_percent": 17.7,
-      "overtime_hours": 12.5,
-      "staff_count": 28
-    },
-    "sample_volume": {
-      "daily_average": 1250,
-      "peak_hour_volume": 180,
-      "valley_hour_volume": 45,
-      "growth_rate": 3.2
+    "sample_throughput": {
+      "daily_average": 1253,
+      "capacity": 1500
     }
   },
-  "system_performance": {
-    "response_times": {
-      "api_average_ms": 145,
-      "database_query_ms": 23,
-      "frontend_load_ms": 890,
-      "report_generation_ms": 2340
-    },
-    "availability": {
-      "uptime_percent": 99.95,
-      "incidents_this_month": 2,
-      "mttr_minutes": 18,
-      "planned_maintenance_hours": 4
-    },
-    "resource_usage": {
-      "cpu_average": 45.6,
-      "memory_average": 62.3,
-      "disk_io_mbps": 125,
-      "network_throughput_mbps": 85
-    },
-    "error_rates": {
-      "api_errors_per_thousand": 0.8,
-      "timeout_rate": 0.02,
-      "validation_errors": 1.2,
-      "critical_errors": 0
-    }
+  "system_metrics": {
+    "uptime": 99.9,
+    "response_time_ms": 128,
+    "error_rate": 0.1
   },
-  "workflow_efficiency": {
-    "automation_rate": {
-      "current": 72.5,
-      "target": 80.0,
-      "manual_steps": 125,
-      "automated_steps": 335
-    },
-    "pipeline_performance": {
-      "github_actions_success_rate": 94.2,
-      "average_runtime_minutes": 8.5,
-      "failed_runs_this_week": 3,
-      "total_runs_this_week": 52
-    },
-    "integration_health": {
-      "notion_sync_success": 99.1,
-      "teams_notifications_sent": 245,
-      "powerbi_updates_pushed": 1820,
-      "epic_beaker_transactions": 8750
-    },
-    "data_quality": {
-      "validation_pass_rate": 98.9,
-      "duplicate_rate": 0.3,
-      "missing_data_rate": 1.1,
-      "outlier_detection_rate": 0.8
-    }
-  },
-  "bottlenecks": [
-    {
-      "area": "TAT Compliance",
-      "severity": "high",
-      "impact": "Patient care delays",
-      "current_value": 88.5,
-      "target_value": 90.0
-    },
-    {
-      "area": "Automation Rate",
-      "severity": "medium",
-      "impact": "Manual process overhead",
-      "current_value": 72.5,
-      "target_value": 80.0
-    }
-  ],
-  "optimizations": [
-    {
-      "title": "Improve TAT Compliance",
-      "priority": "high",
-      "estimated_impact": "5-10% improvement",
-      "actions": [
-        "Implement parallel processing for batch samples",
-        "Optimize instrument scheduling algorithm",
-        "Add real-time TAT monitoring dashboard",
-        "Automate result verification for normal results"
-      ],
-      "estimated_effort": "2-3 weeks",
-      "roi": "High - direct patient care impact"
-    },
-    {
-      "title": "Increase Automation Coverage",
-      "priority": "medium",
-      "estimated_impact": "20% reduction in manual work",
-      "actions": [
-        "Automate report generation",
-        "Implement auto-validation rules",
-        "Add workflow orchestration",
-        "Create automated testing suite"
-      ],
-      "estimated_effort": "3-4 weeks",
-      "roi": "High - long-term efficiency gains"
-    }
-  ],
-  "performance_score": {
-    "overall": 97.2,
-    "tat_compliance": 98.3,
-    "qc_performance": 100,
-    "system_availability": 100.0,
-    "automation": 90.6,
-    "grade": "A+"
-  }
+  "recommendations": [
+    "System performing optimally",
+    "Consider scaling automation during peak hours",
+    "QC performance exceeding targets"
+  ]
 }

@@ -1,0 +1,68 @@
+{
+  "critical_alert_flow": {
+    "name": "Critical Lab Alert Handler",
+    "trigger": "Teams message posted",
+    "steps": [
+      {
+        "condition": "Check if message contains critical keywords",
+        "keywords": [
+          "STAT",
+          "critical value",
+          "emergency",
+          "system down",
+          "no coverage"
+        ]
+      },
+      {
+        "action": "Create Notion database entry",
+        "database": "Critical Alerts",
+        "fields": {
+          "Alert ID": "AUTO_GENERATE",
+          "Timestamp": "@{utcNow()}",
+          "Priority": "\ud83d\udd34 CRITICAL",
+          "Original Message": "@{triggerBody()['body']['content']}",
+          "Status": "\ud83d\udfe5 Open"
+        }
+      },
+      {
+        "action": "Send Teams notification",
+        "mention": "@channel",
+        "message": "\ud83d\udea8 CRITICAL LAB ALERT: {keyword} detected"
+      },
+      {
+        "action": "Send SMS to on-call",
+        "condition": "If critical keywords detected"
+      }
+    ]
+  },
+  "staffing_alert_flow": {
+    "name": "Staffing & Attendance Handler",
+    "trigger": "Teams message posted",
+    "steps": [
+      {
+        "condition": "Check if message contains staffing keywords",
+        "keywords": [
+          "calling out",
+          "sick today",
+          "can't make it",
+          "no coverage",
+          "short staffed"
+        ]
+      },
+      {
+        "action": "Create Notion database entry",
+        "database": "Staffing & Attendance Tracker",
+        "fields": {
+          "Entry ID": "AUTO_GENERATE",
+          "Date": "@{utcNow()}",
+          "Status": "\u274c Called Out",
+          "Notification Sent": true
+        }
+      },
+      {
+        "action": "Check for attendance patterns",
+        "condition": "If same person has 3+ recent absences"
+      }
+    ]
+  }
+}

@@ -1,0 +1,439 @@
+{
+  "dashboard_name": "Kaiser Permanente Lab Operations Command Center",
+  "created": "2025-09-09T22:10:23.915003",
+  "version": "2.0.0",
+  "databases": {
+    "critical_alerts": {
+      "name": "\ud83d\udea8 Critical Alerts Database",
+      "description": "Real-time critical incidents requiring immediate response",
+      "properties": {
+        "Alert ID": {
+          "type": "title"
+        },
+        "Timestamp": {
+          "type": "date"
+        },
+        "Priority": {
+          "type": "select",
+          "options": [
+            "\ud83d\udd34 CRITICAL",
+            "\ud83d\udfe0 HIGH",
+            "\ud83d\udfe1 MEDIUM",
+            "\ud83d\udfe2 LOW"
+          ]
+        },
+        "Category": {
+          "type": "select",
+          "options": [
+            "Patient Safety",
+            "System Failure",
+            "Staffing Crisis",
+            "Equipment Down",
+            "Critical Value",
+            "Network Issue"
+          ]
+        },
+        "Department": {
+          "type": "select",
+          "options": [
+            "Chemistry",
+            "Hematology",
+            "Microbiology",
+            "Blood Bank",
+            "Phlebotomy",
+            "IT Systems",
+            "Administration"
+          ]
+        },
+        "Keyword Triggered": {
+          "type": "rich_text"
+        },
+        "Original Message": {
+          "type": "rich_text"
+        },
+        "Status": {
+          "type": "select",
+          "options": [
+            "\ud83d\udfe5 Open",
+            "\ud83d\udfe8 In Progress",
+            "\ud83d\udfe9 Resolved",
+            "\ud83d\udfe6 Escalated"
+          ]
+        },
+        "Assigned To": {
+          "type": "people"
+        },
+        "Resolution Time": {
+          "type": "number"
+        },
+        "Impact Level": {
+          "type": "select",
+          "options": [
+            "1-Low",
+            "2-Medium",
+            "3-High",
+            "4-Critical"
+          ]
+        },
+        "Follow-up Required": {
+          "type": "checkbox"
+        }
+      }
+    },
+    "staffing_tracking": {
+      "name": "\ud83d\udc65 Staffing & Attendance Tracker",
+      "description": "Real-time staff availability and attendance monitoring",
+      "properties": {
+        "Entry ID": {
+          "type": "title"
+        },
+        "Date": {
+          "type": "date"
+        },
+        "Employee Name": {
+          "type": "rich_text"
+        },
+        "Department": {
+          "type": "select",
+          "options": [
+            "Chemistry",
+            "Hematology",
+            "Microbiology",
+            "Blood Bank",
+            "Phlebotomy"
+          ]
+        },
+        "Shift": {
+          "type": "select",
+          "options": [
+            "Day",
+            "Evening",
+            "Night",
+            "Weekend"
+          ]
+        },
+        "Status": {
+          "type": "select",
+          "options": [
+            "\u2705 Present",
+            "\u274c Called Out",
+            "\u26a0\ufe0f Late",
+            "\ud83c\udfe5 Medical Leave",
+            "\ud83c\udfd6\ufe0f Vacation",
+            "\ud83d\udd04 Coverage Found",
+            "\ud83d\udea8 No Coverage"
+          ]
+        },
+        "Reason": {
+          "type": "rich_text"
+        },
+        "Coverage Status": {
+          "type": "select",
+          "options": [
+            "\u2705 Covered",
+            "\ud83d\udd04 Finding Coverage",
+            "\ud83d\udea8 No Coverage",
+            "\ud83d\udcb0 Overtime"
+          ]
+        },
+        "Notification Sent": {
+          "type": "checkbox"
+        },
+        "Pattern Flag": {
+          "type": "checkbox"
+        },
+        "Occurrence Count": {
+          "type": "number"
+        }
+      }
+    },
+    "system_status": {
+      "name": "\ud83d\udda5\ufe0f System Status Monitor",
+      "description": "Track all lab systems, analyzers, and IT infrastructure",
+      "properties": {
+        "System Name": {
+          "type": "title"
+        },
+        "Category": {
+          "type": "select",
+          "options": [
+            "Analyzer",
+            "IT System",
+            "Network",
+            "Tube System",
+            "LIMS",
+            "Interface",
+            "Backup System"
+          ]
+        },
+        "Department": {
+          "type": "select",
+          "options": [
+            "Chemistry",
+            "Hematology",
+            "Microbiology",
+            "Blood Bank",
+            "IT",
+            "All Departments"
+          ]
+        },
+        "Status": {
+          "type": "select",
+          "options": [
+            "\ud83d\udfe2 Online",
+            "\ud83d\udfe1 Warning",
+            "\ud83d\udd34 Down",
+            "\ud83d\udd27 Maintenance",
+            "\ud83d\udd04 Restarting"
+          ]
+        },
+        "Last Updated": {
+          "type": "date"
+        },
+        "Uptime %": {
+          "type": "number"
+        },
+        "Issue Description": {
+          "type": "rich_text"
+        },
+        "Service Called": {
+          "type": "checkbox"
+        },
+        "ETA Resolution": {
+          "type": "date"
+        },
+        "Impact Assessment": {
+          "type": "rich_text"
+        },
+        "Backup Available": {
+          "type": "checkbox"
+        }
+      }
+    },
+    "hr_compliance": {
+      "name": "\ud83d\udccb HR Compliance Tracker",
+      "description": "Monitor FMLA, certifications, and compliance requirements",
+      "properties": {
+        "Record ID": {
+          "type": "title"
+        },
+        "Employee Name": {
+          "type": "rich_text"
+        },
+        "Type": {
+          "type": "select",
+          "options": [
+            "FMLA",
+            "Medical Leave",
+            "Workers Comp",
+            "Certification",
+            "Training",
+            "Disciplinary Action",
+            "Performance Review"
+          ]
+        },
+        "Status": {
+          "type": "select",
+          "options": [
+            "\ud83d\udfe2 Current",
+            "\ud83d\udfe1 Due Soon",
+            "\ud83d\udd34 Overdue",
+            "\ud83d\udccb In Review",
+            "\u2705 Completed"
+          ]
+        },
+        "Due Date": {
+          "type": "date"
+        },
+        "Completion Date": {
+          "type": "date"
+        },
+        "Days Overdue": {
+          "type": "formula"
+        },
+        "Priority": {
+          "type": "select",
+          "options": [
+            "Low",
+            "Medium",
+            "High",
+            "Critical"
+          ]
+        },
+        "Action Required": {
+          "type": "rich_text"
+        },
+        "Compliance Risk": {
+          "type": "select",
+          "options": [
+            "Low",
+            "Medium",
+            "High"
+          ]
+        }
+      }
+    },
+    "performance_metrics": {
+      "name": "\ud83d\udcca Performance Metrics Dashboard",
+      "description": "Track KPIs, TAT, QC, and operational performance",
+      "properties": {
+        "Metric Name": {
+          "type": "title"
+        },
+        "Date": {
+          "type": "date"
+        },
+        "Department": {
+          "type": "select",
+          "options": [
+            "Chemistry",
+            "Hematology",
+            "Microbiology",
+            "Blood Bank",
+            "Overall"
+          ]
+        },
+        "Metric Type": {
+          "type": "select",
+          "options": [
+            "TAT",
+            "QC Performance",
+            "Productivity",
+            "Error Rate",
+            "Specimen Quality",
+            "Staff Utilization"
+          ]
+        },
+        "Target Value": {
+          "type": "number"
+        },
+        "Actual Value": {
+          "type": "number"
+        },
+        "Performance %": {
+          "type": "formula"
+        },
+        "Status": {
+          "type": "select",
+          "options": [
+            "\ud83d\udfe2 On Target",
+            "\ud83d\udfe1 Below Target",
+            "\ud83d\udd34 Critical"
+          ]
+        },
+        "Trend": {
+          "type": "select",
+          "options": [
+            "\ud83d\udcc8 Improving",
+            "\ud83d\udcca Stable",
+            "\ud83d\udcc9 Declining"
+          ]
+        },
+        "Action Items": {
+          "type": "rich_text"
+        }
+      }
+    }
+  },
+  "views": {
+    "command_center": {
+      "name": "\ud83c\udfaf Command Center Overview",
+      "type": "dashboard",
+      "components": [
+        "Current Critical Alerts",
+        "System Status Summary",
+        "Staffing Status",
+        "Performance Metrics",
+        "Compliance Alerts"
+      ]
+    },
+    "realtime_alerts": {
+      "name": "\ud83d\udea8 Real-Time Alert Monitor",
+      "type": "table",
+      "filter": "Status = Open OR In Progress",
+      "sort": "Priority DESC, Timestamp DESC"
+    },
+    "staffing_board": {
+      "name": "\ud83d\udc65 Daily Staffing Board",
+      "type": "kanban",
+      "group_by": "Department",
+      "filter": "Date = Today"
+    },
+    "system_health": {
+      "name": "\ud83d\udc9a System Health Dashboard",
+      "type": "gallery",
+      "group_by": "Department",
+      "filter": "Status != Offline"
+    }
+  },
+  "automation_rules": {
+    "critical_escalation": {
+      "name": "Critical Alert Auto-Escalation",
+      "trigger": "New critical alert created",
+      "condition": "Priority = CRITICAL AND no response in 5 minutes",
+      "action": "Escalate to next level + send SMS"
+    },
+    "attendance_pattern": {
+      "name": "Attendance Pattern Detection",
+      "trigger": "New attendance record",
+      "condition": "Same person, 3+ absences in 30 days",
+      "action": "Flag for HR review + notify manager"
+    },
+    "compliance_reminder": {
+      "name": "Compliance Due Date Alerts",
+      "trigger": "Daily at 8:00 AM",
+      "condition": "Due date within 7 days",
+      "action": "Send reminder notification"
+    }
+  },
+  "keyword_mapping": {
+    "critical_alerts": [
+      "STAT",
+      "critical value",
+      "panic value",
+      "code blue",
+      "code red",
+      "emergency",
+      "patient safety",
+      "wrong blood",
+      "transfusion urgent",
+      "contamination",
+      "system down",
+      "analyzer down",
+      "instrument failure"
+    ],
+    "staffing_issues": [
+      "calling out",
+      "call out",
+      "won't be in",
+      "can't make it",
+      "sick today",
+      "no show",
+      "absent",
+      "need coverage",
+      "short staffed",
+      "no coverage"
+    ],
+    "system_status": [
+      "system down",
+      "analyzer down",
+      "tube system down",
+      "network down",
+      "interface down",
+      "maintenance",
+      "is down",
+      "is back up"
+    ],
+    "hr_compliance": [
+      "FMLA",
+      "medical leave",
+      "workers comp",
+      "injury",
+      "disciplinary action",
+      "performance review",
+      "certification",
+      "training",
+      "compliance"
+    ]
+  }
+}

@@ -1,15 +1,15 @@
 {
-  "timestamp": "2025-09-09T19:30:04.185720",
+  "timestamp": "2025-09-09T19:49:41.658996",
   "sources": {
     "performance": {
-      "score": 97.2,
-      "grade": "A+",
-      "tat_compliance": 88.5,
-      "qc_pass_rate": 98.7
+      "score": 98,
+      "grade": "A",
+      "tat_compliance": 95,
+      "qc_pass_rate": 97
     },
     "repositories": {
       "total": 6,
-      "healthy": 0,
+      "healthy": 1,
       "with_tests": 1
     },
     "health": {

@@ -1,0 +1,24 @@
+# Render deployment configuration
+services:
+  - type: web
+    name: notion-webhook-server
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python scripts/notion_webhook_server.py
+    envVars:
+      - key: NOTION_API_TOKEN_PRIMARY
+        sync: false
+      - key: NOTION_API_TOKEN_SECONDARY  
+        sync: false
+      - key: NOTION_VERSION
+        value: "2022-06-28"
+      - key: NOTION_PERFORMANCE_DB_ID
+        sync: false
+      - key: NOTION_INCIDENT_DB_ID
+        sync: false
+      - key: WEBHOOK_PORT
+        value: "8080"
+      - key: NOTION_WEBHOOK_SECRET
+        sync: false
+      - key: FLASK_ENV
+        value: "production"

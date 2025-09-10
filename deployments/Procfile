@@ -1,0 +1,2 @@
+# Heroku Procfile
+web: python scripts/notion_webhook_server.py

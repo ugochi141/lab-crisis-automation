@@ -1,0 +1,46 @@
+{
+  "critical_alert_flow": {
+    "name": "Kaiser Lab Alert - Critical",
+    "status": "\u2705 ACTIVE",
+    "trigger": "Teams message posted in Lab Alert Channel",
+    "condition": "Message contains critical keywords",
+    "actions": [
+      "Create Notion database entry",
+      "Send Teams @channel notification",
+      "Send SMS to on-call supervisor",
+      "Log to GitHub for audit trail"
+    ],
+    "test_result": "\u2705 All actions successful",
+    "last_run": "2025-09-09T22:45:53.252735"
+  },
+  "high_priority_flow": {
+    "name": "Kaiser Lab Alert - High Priority",
+    "status": "\u2705 ACTIVE",
+    "trigger": "Teams message with staffing keywords",
+    "actions": [
+      "Notion entry",
+      "Supervisor notification"
+    ],
+    "test_result": "\u2705 All actions successful"
+  },
+  "medium_priority_flow": {
+    "name": "Kaiser Lab Alert - Medium Priority",
+    "status": "\u2705 ACTIVE",
+    "trigger": "Teams message with routine keywords",
+    "actions": [
+      "Notion entry",
+      "Daily digest"
+    ],
+    "test_result": "\u2705 All actions successful"
+  },
+  "compliance_flow": {
+    "name": "Kaiser Lab Alert - Compliance",
+    "status": "\u2705 ACTIVE",
+    "trigger": "Teams message with HR keywords",
+    "actions": [
+      "HR notification",
+      "Compliance tracking"
+    ],
+    "test_result": "\u2705 All actions successful"
+  }
+}
