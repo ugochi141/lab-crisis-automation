@@ -223,9 +223,11 @@ Order staff entries by their `startTime` value in ascending order:
 ### Phlebotomy Role Assignments & Accountability Standards
 
 **CRITICAL - Always Use Correct Nicknames:**
+
+**Phlebotomy Staff:**
 - Christina Bolden-Davis → nickname: 'Christina'
 - Johnette Brooks → nickname: 'Netta' (NOT 'Johnette')
-- Raquel Grayson → nickname: 'Rachel' (NOT 'Raquel')
+- Raquel Grayson → nickname: 'Raquel' (CORRECTION: USE 'Raquel' NOT 'Rachel')
 - Manoucheca Onuma → nickname: 'Mimi'
 - Youlana Miah → nickname: 'Youlana'
 - Farah Moise → nickname: 'Farah'
@@ -240,43 +242,162 @@ Order staff entries by their `startTime` value in ascending order:
 - Tamika Nettles → nickname: 'Tamika'
 - Marilyn Ortiz → nickname: 'Marilyn'
 
+**Laboratory Technicians:**
+- Jacqueline Liburd → nickname: 'Jackie'
+- Emmanuel Lejano → nickname: 'Boyet'
+- Maxwell Booker → nickname: 'Booker' (NOT 'Maxwell')
+- Ogheneochuko Eshofa → nickname: 'Tracy'
+- Lorraine Blackwell → nickname: 'Lorraine'
+- Emily Creekmore → nickname: 'Emily'
+- Ingrid Benitez-Ruiz → nickname: 'Ingrid'
+- Lionel Ndifor → nickname: 'Lionel'
+- Albert Che → nickname: 'Albert'
+- George Etape → nickname: 'George'
+
 **Role Assignment Standards (Non-Negotiable):**
+
+**IMPORTANT - Assignment Title Format:**
+- Always list primary role first: "Draw Patients/[specific role]"
+- Examples: "Draw Patients/Opener", "Draw Patients/Runner", "Draw Patients/Hot Seat"
+- Exception: "Processor" stands alone (no "Draw Patients/" prefix)
+- Exception: "Draw Patients (Backup Processor)" uses parentheses
 
 **Opener (Phleb)**
 - Assignment: 'Draw Patients/Opener'
 - Core Responsibility: Temp check in phleb area. Clean and stock draw stations.
 - Accountability: Area must be fully stocked and ready for shift start. Check tubes expiration dates at each station.
-- Staff: Christina Bolden-Davis
+- Who: First shift of the day
 
 **Processor (Dayshift)**
 - Assignment: 'Processor'
 - Core Responsibility: Process for the entire shift.
 - Accountability: Do not leave processing station until end of shift. Remain processing until your shift is complete and you have passed down the handoff sheet to evening shift. Must complete the 10am run!
-- Staff: Farah Moise (7:00a-3:30p), Emmanuella Theodore (9:00a-5:30p)
+- Who: Phlebotomists trained in processing
 
 **Backup Processor**
 - Assignment: 'Draw Patients (Backup Processor)'
 - Core Responsibility: Assist processing when business allows.
 - Accountability: When processing assistance isn't needed, you are drawing patients.
-- Staff: Anne Saint Phirin
+- Who: Whoever can process for day shift can be Backup Processor
 
 **Evening Processor**
 - Assignment: 'Processor'
 - Core Responsibility: Finalize logs and function as Processor 2/3 initially.
 - Accountability: Do not interrupt the dayshift processing workflow. Must place both day and evening shift communication logs in the designated box, sorted by date.
-- Staff: Nichole Fauntleroy, Danalisa Hayes (2:00p-10:30p)
+- Who: Evening phlebotomists trained in processing
 
 **Hot Seat**
 - Assignment: 'Draw Patients/Hot Seat'
 - Core Responsibility: Flexible role coverage as business needs dictate
-- Staff: Shannon Pilkington, Taric White (evening)
+- Who: Whoever is not a closer in evening shifts
+
+**Runner**
+- Assignment: 'Draw Patients/Runner'
+- Core Responsibility: Deliver labs every 30 minutes
+- Accountability: Specimens must be delivered promptly to Lab (AUC/MOB) for prompt testing
 
 **Closer**
 - Assignment: 'Draw Patients/Closer'
 - Core Responsibility: Restock phlebotomy area.
 - Accountability: Area must be left complete and ready for the next shift. Check tubes expiration dates at each station.
+- Who: Last shift or 2nd to last shift of the day
+
+**ROTATION POLICY:**
+- Rotate phlebotomists on what they can do
+- Rotate ALL staff on bench assignments
 
 **Processing Training Status:**
 - ✓ Fully Trained (Day): Anne Saint Phirin, Farah Moise, Manucheca Onuma, Youlana Miah, Christina Bolden-Davis, Emmanuella Theodore
 - ✓ Fully Trained (Evening): Danalisa Hayes, Nichole Fauntleroy
 - ⚠ Needs Training: Netta (Johnette Brooks), Micaela Scarborough, Taric White
+
+---
+
+## Laboratory Bench Assignment Standards
+
+### Staffing-Based Bench Rotations
+
+**CRITICAL RULE:** Rotate ALL staff on bench assignments
+
+#### AUC Day Shift (Two Techs)
+**Assignment Split:**
+- **AUC Front:** Processing/Urines, Kits, Stago
+- **AUC Back:** Hematology, Chemistry, Molecular
+
+#### MOB Day Shift (One Tech + One MLA)
+**Tech Assignment:**
+- MOB Quality Control and Maintenance Operations
+
+**MLA Assignment:**
+- MOB - Assist with QC/Maint, Inventory
+- SQA Daily
+- Hematek Daily QC
+- Previ Gram
+
+#### AUC Evening Shift (Three Techs)
+**Assignment Split:**
+- **Tech 1:** Urines, Kits, Stago
+- **Tech 2:** Processing
+- **Tech 3:** Hematology, Chemistry, Molecular
+
+### Specific QC Assignments by Staff Member
+
+#### Maxwell Booker (Booker) - MOB
+- Pure 1 QC @7:30am (Daily)
+- Kits QC (Daily)
+- Sysmex Startup/QC (Daily)
+- Hematek Startup/QC (Daily)
+- Previ Gram Stain (Daily)
+- Stago Maint
+- Beads Maint
+- Log QC
+
+#### Lorraine Blackwell - MOB
+- Assist with QC/Maint
+- Inventory Management
+- Novus Weekly (Wednesdays)
+
+#### Emily Creekmore - AUC Back
+- MedTox QC (Daily)
+- Sysmex Startup/QC (Daily)
+- Hematek Startup/QC (Daily)
+- Stago Maint
+- Log QC
+
+#### Ingrid Benitez-Ruiz - AUC Front
+- Processing
+- Kits QC (Daily)
+- Stago Maint
+- Log QC
+
+### Daily Maintenance Assignments (All Staff)
+
+**Stago Maintenance:**
+- ESR 10% Check QC (Daily)
+- Stago Maint
+- Log QC
+
+**Universal Requirements (EVERYONE):**
+- Wipe Benches
+- Clean Microscopes
+
+### Lead Duties Assignments
+
+**Ingrid Benitez-Ruiz:**
+- Lead Duties on Mondays and Thursdays
+
+**Sam (Samantha):**
+- Lead Duties when 3 techs work the bench
+
+### TempTrak Temperature Monitoring (10/13/25 - 10/17/25)
+
+**AUC Location:**
+- 9:00am check
+- 4:00pm check
+- 12:00am (midnight) check
+
+**MOB Location:**
+- 9:00am check
+- 4:00pm check
+
+**Note:** Temperature monitoring must be documented per CLIA/CAP requirements. Ensure all checks are logged in TempTrak system.
