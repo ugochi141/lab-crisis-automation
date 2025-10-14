@@ -59,8 +59,8 @@ When updating https://ugochi141.github.io/largo-lab-portal/:
 ### 7. **Schedule Data Synchronization - Daily Schedule as Source of Truth**
 
 **CRITICAL:** Daily Schedule data MUST automatically populate and update both:
-1. **Visual Coverage Schedule** (`Schedules/Largo Clinical Lab Schedule Visual Coverage Schedule.html`)
-2. **Call Out Tracker** (`Schedules/🚨 Call Out Tracker - Largo Clinical Laboratory.html`)
+1. **Visual Coverage Schedule** (`Scheduler.html`)
+2. **Call Out Tracker** (`Scheduler1.html`)
 
 **How it works:**
 - Daily Schedule is the **single source of truth** for all schedule data
@@ -71,15 +71,20 @@ When updating https://ugochi141.github.io/largo-lab-portal/:
 
 **File Paths:**
 - **Source:** `/Users/ugochi141/Documents/largo-lab-portal/Schedules/Daily Schedule.html`
-- **Target 1:** `/Users/ugochi141/Documents/largo-lab-portal/Schedules/Largo Clinical Lab Schedule Visual Coverage Schedule.html`
-- **Target 2:** `/Users/ugochi141/Documents/largo-lab-portal/Schedules/🚨 Call Out Tracker - Largo Clinical Laboratory.html`
+- **Target 1 (Visual Coverage):** `/Users/ugochi141/Documents/largo-lab-portal/Schedules/Scheduler.html`
+- **Target 2 (Call Out Tracker):** `/Users/ugochi141/Documents/largo-lab-portal/Schedules/Scheduler1.html`
+
+**GitHub Pages URLs:**
+- **Daily Schedule:** https://ugochi141.github.io/largo-lab-portal/Schedules/Daily%20Schedule.html
+- **Visual Coverage:** https://ugochi141.github.io/largo-visual-coverage-schedule/
+- **Call Out Tracker:** https://ugochi141.github.io/largo-call-out-tracker/
 
 **Verification Steps:**
 1. Update schedule data in Daily Schedule.html
 2. Verify `ScheduleSync.syncFromDailySchedule(scheduleData)` is called
 3. Check localStorage for updated `visualScheduleData` and `callOutScheduleData`
-4. Open Visual Coverage Schedule and verify it displays synced data for the date
-5. Open Call Out Tracker and verify it displays synced data for the date
+4. Open Visual Coverage Schedule (Scheduler.html) and verify it displays synced data for the date
+5. Open Call Out Tracker (Scheduler1.html) and verify it displays synced data for the date
 
 ---
 
