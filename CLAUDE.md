@@ -219,3 +219,64 @@ Order staff entries by their `startTime` value in ascending order:
 3. Maintain consistent formatting with existing entries
 4. Stagger break times to avoid overlaps (15-min intervals)
 5. Use October 9, 2025 schedule as the reference template
+
+### Phlebotomy Role Assignments & Accountability Standards
+
+**CRITICAL - Always Use Correct Nicknames:**
+- Christina Bolden-Davis → nickname: 'Christina'
+- Johnette Brooks → nickname: 'Netta' (NOT 'Johnette')
+- Raquel Grayson → nickname: 'Rachel' (NOT 'Raquel')
+- Manoucheca Onuma → nickname: 'Mimi'
+- Youlana Miah → nickname: 'Youlana'
+- Farah Moise → nickname: 'Farah'
+- Anne Saint Phirin → nickname: 'Anne'
+- Emmanuella Theodore → nickname: 'Emmanuella'
+- Micaela Scarborough → nickname: 'Micaela'
+- Shannon Pilkington → nickname: 'Shannon'
+- Stephanie Dodson → nickname: 'Stephanie'
+- Nichole Fauntleroy → nickname: 'Nichole'
+- Danalisa Hayes → nickname: 'Danalisa'
+- Taric White → nickname: 'Taric'
+- Tamika Nettles → nickname: 'Tamika'
+- Marilyn Ortiz → nickname: 'Marilyn'
+
+**Role Assignment Standards (Non-Negotiable):**
+
+**Opener (Phleb)**
+- Assignment: 'Draw Patients/Opener'
+- Core Responsibility: Temp check in phleb area. Clean and stock draw stations.
+- Accountability: Area must be fully stocked and ready for shift start. Check tubes expiration dates at each station.
+- Staff: Christina Bolden-Davis
+
+**Processor (Dayshift)**
+- Assignment: 'Processor'
+- Core Responsibility: Process for the entire shift.
+- Accountability: Do not leave processing station until end of shift. Remain processing until your shift is complete and you have passed down the handoff sheet to evening shift. Must complete the 10am run!
+- Staff: Farah Moise (7:00a-3:30p), Emmanuella Theodore (9:00a-5:30p)
+
+**Backup Processor**
+- Assignment: 'Draw Patients (Backup Processor)'
+- Core Responsibility: Assist processing when business allows.
+- Accountability: When processing assistance isn't needed, you are drawing patients.
+- Staff: Anne Saint Phirin
+
+**Evening Processor**
+- Assignment: 'Processor'
+- Core Responsibility: Finalize logs and function as Processor 2/3 initially.
+- Accountability: Do not interrupt the dayshift processing workflow. Must place both day and evening shift communication logs in the designated box, sorted by date.
+- Staff: Nichole Fauntleroy, Danalisa Hayes (2:00p-10:30p)
+
+**Hot Seat**
+- Assignment: 'Draw Patients/Hot Seat'
+- Core Responsibility: Flexible role coverage as business needs dictate
+- Staff: Shannon Pilkington, Taric White (evening)
+
+**Closer**
+- Assignment: 'Draw Patients/Closer'
+- Core Responsibility: Restock phlebotomy area.
+- Accountability: Area must be left complete and ready for the next shift. Check tubes expiration dates at each station.
+
+**Processing Training Status:**
+- ✓ Fully Trained (Day): Anne Saint Phirin, Farah Moise, Manucheca Onuma, Youlana Miah, Christina Bolden-Davis, Emmanuella Theodore
+- ✓ Fully Trained (Evening): Danalisa Hayes, Nichole Fauntleroy
+- ⚠ Needs Training: Netta (Johnette Brooks), Micaela Scarborough, Taric White
