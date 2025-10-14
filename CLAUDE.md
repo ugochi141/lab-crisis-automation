@@ -439,6 +439,125 @@ Order staff entries by their `startTime` value in ascending order:
 
 ---
 
+## QC and Maintenance Schedule
+
+### Weekly Tasks
+
+**Hematek (Both AUC & MOB):**
+- Frequency: Weekly
+- Assigned: Day shift staff
+
+**Sysmex XN Shutdown:**
+- **AUC:** Saturday evening, 9:00 PM
+- **MOB:** Saturday evening, 10:00 PM
+- Assigned: Evening shift staff
+
+**Previ Gram Stain (MOB):**
+- Frequency: Every Tuesday
+- Assigned: Day shift (Booker, Lorraine)
+
+**Novus (AUC):**
+- Frequency: Every Tuesday night after 3:00 AM
+- Assigned: Night shift (George)
+
+**Novus (MOB):**
+- Frequency: Every Wednesday day shift
+- Assigned: Day shift (Lorraine)
+
+**GeneXpert (Both AUC & MOB):**
+- Frequency: Every Thursday night
+- Assigned: Night shift (George)
+
+**Stago (Both AUC & MOB):**
+- Frequency: Every Wednesday evening
+- Assigned: Evening shift (Tracy, Lionel, Albert)
+
+---
+
+### Biweekly Tasks
+
+**Pure Analyzer 2 (AUC):**
+- Frequency: Every other Saturday, 3:00 AM
+- Start Date: 10/11/25
+- Next: 10/25/25, 11/08/25, 11/22/25...
+- Assigned: Night shift (George)
+
+**Pure Analyzer 1 (MOB):**
+- Frequency: Every other Friday, 10:00 PM
+- Start Date: 10/04/25
+- Next: 10/18/25, 11/01/25, 11/15/25...
+- Assigned: Evening shift
+
+---
+
+### Monthly Tasks
+
+**Hematek (Both locations):**
+- Frequency: 2nd Wednesday of month
+- Shift: Day shift
+- Assigned: Booker (MOB), Emily (AUC)
+
+**MedTox (AUC):**
+- Frequency: 3rd Wednesday of month
+- Shift: Day shift
+- Assigned: Emily
+
+**Previ Gram Stain (MOB):**
+- Frequency: 3rd Tuesday of month
+- Shift: Day shift
+- Assigned: Booker, Lorraine
+
+**Novus (MOB):**
+- Frequency: 3rd Thursday of month
+- Shift: Day shift
+- Assigned: Lorraine
+
+**GeneXpert (Both locations):**
+- Frequency: 2nd Wednesday of month
+- Shift: Night shift
+- Assigned: George
+
+**Stago (Both locations):**
+- Frequency: 2nd Thursday of month, 9:00 PM
+- Shift: Evening shift
+- Assigned: Tracy, Lionel, Albert
+
+**Pure Analyzers (Both AUC & MOB):**
+- Frequency: 3rd Saturday of month, 3:00 AM
+- Shift: Night shift
+- Assigned: George
+
+---
+
+### QC Schedule Quick Reference
+
+**Daily:**
+- Pure 1 QC (MOB) - 7:30am
+- Pure 2 QC (AUC) - 3:00am
+- Kits QC, Sysmex, Hematek, MedTox, Stago, ESR 10%
+- MiniSed QC, GeneXpert QC (night)
+- Log QC, Wipe Benches, Clean Microscopes (ALL staff)
+
+**Weekly:**
+- Tuesday: Previ Gram (MOB), Novus (AUC - night)
+- Wednesday: Novus (MOB - day), Stago (Both - evening)
+- Thursday: GeneXpert (Both - night)
+- Saturday: Sysmex XN Shutdown (9pm AUC, 10pm MOB)
+
+**Biweekly:**
+- Every other Friday 10pm: Pure 1 (MOB) - starts 10/04/25
+- Every other Saturday 3am: Pure 2 (AUC) - starts 10/11/25
+
+**Monthly:**
+- 2nd Wednesday: Hematek, GeneXpert (night)
+- 2nd Thursday 9pm: Stago
+- 3rd Tuesday: Previ Gram (MOB)
+- 3rd Wednesday: MedTox (AUC)
+- 3rd Thursday: Novus (MOB)
+- 3rd Saturday 3am: Pure Analyzers (Both)
+
+---
+
 ## GitHub Pages Deployment Process
 
 ### # TO MEMORIZE - Proper GitHub Pages Update Workflow
