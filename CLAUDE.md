@@ -206,6 +206,13 @@ Order staff entries by their `startTime` value in ascending order:
 }
 ```
 
+**IMPORTANT - Department Field Convention:**
+- **ALWAYS use "MLS"** for Medical Laboratory Scientists (Medical Technologists)
+- **NEVER use "MT"** - this is incorrect terminology
+- Medical Laboratory Scientists = MLS (correct)
+- Medical Technologists = MLS (correct)
+- MT = INCORRECT, always change to MLS
+
 **When Adding New Schedule Dates:**
 1. Always order phlebotomy staff by startTime (ascending)
 2. Always order laboratory staff by startTime (ascending, with midnight shifts last)
