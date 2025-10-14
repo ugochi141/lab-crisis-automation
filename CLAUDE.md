@@ -86,6 +86,96 @@ When updating https://ugochi141.github.io/largo-lab-portal/:
 4. Open Visual Coverage Schedule (Scheduler.html) and verify it displays synced data for the date
 5. Open Call Out Tracker (Scheduler1.html) and verify it displays synced data for the date
 
+### 8. **QC/Maintenance Staff Assignments - Daily/Weekly/Biweekly/Monthly**
+
+**CRITICAL:** MLA can ONLY do Urines and Kits QC. All other QC must be assigned to MLT or MLS.
+
+#### **DAILY QC Assignments:**
+
+**MOB Day Shift (7:30am start):**
+- **Booker (MLT)**: Pure 1 QC @7:30am, Kits QC, Sysmex Startup/QC, Hematek Startup/QC, Previ Gram Stain, Stago Maint, Beads Maint, Log QC
+- **Lorraine (MLA)**: Assist with QC/Maint, Inventory, SQA Daily, Urines, Kits ONLY
+
+**AUC Day Shift (7:30am start):**
+- **AUC Front Tech (MLT/MLS rotating)**: Kits QC, Stago Maint, Processing, Log QC
+- **Emily (MLT)**: Pure 2 QC @3:00am (night carryover), MedTox QC, Sysmex Startup/QC, Hematek Startup/QC, Stago Maint, Log QC
+
+**AUC Evening Shift (3:30pm start):**
+- **Tracy (MLT)**: Urines, Kits, Stago, ESR 10% Check QC, Stago Maint, Log QC
+- **Lionel (MLT)**: Hematology, Chemistry, Molecular QC, Log QC
+- **Albert (MLS)**: Hematology, Chemistry, Molecular QC, Log QC
+
+**AUC Night Shift:**
+- **Boyet (MLT)**: 9:30p-6a, AUC Night Coverage, MiniSed QC, GeneXpert QC
+- **George (MLS)**: 11:30p-8a, AUC Night Coverage, MiniSed QC, GeneXpert QC
+- **Jackie (MLS)**: 12a-6:30a, AUC Night Coverage, MiniSed QC
+
+**ALL STAFF (Daily):**
+- Wipe Benches, Clean Microscopes, Log QC
+
+---
+
+#### **WEEKLY QC Assignments:**
+
+**Tuesday:**
+- **Previ Gram Stain (MOB)** - Day shift: Booker (MLT), Lorraine (MLA can assist) | **[WEEKLY]**
+- **Novus (AUC)** - Night shift after 3am: George (MLS) | **[WEEKLY]**
+
+**Wednesday:**
+- **Novus (MOB)** - Day shift: Lorraine (MLA) | **[WEEKLY]**
+- **Stago (Both AUC & MOB)** - Evening shift: Tracy (MLT), Lionel (MLT), Albert (MLS) | **[WEEKLY]**
+
+**Thursday:**
+- **GeneXpert (Both AUC & MOB)** - Night shift: George (MLS), Boyet (MLT) | **[WEEKLY]**
+
+**Saturday:**
+- **Sysmex XN Shutdown (AUC)** - 9:00 PM: Evening shift (Tracy/Lionel/Albert) | **[WEEKLY]**
+- **Sysmex XN Shutdown (MOB)** - 10:00 PM: Evening shift (assigned tech) | **[WEEKLY]**
+- **Hematek (Both AUC & MOB)** - Day shift: Booker (MLT-MOB), Emily (MLT-AUC) | **[WEEKLY]**
+
+---
+
+#### **BIWEEKLY QC Assignments:**
+
+**Pure Analyzer 1 (MOB):**
+- **Every other Friday, 10:00 PM** - Evening shift tech (MLT/MLS)
+- **Start Date:** 10/04/25
+- **Next dates:** 10/18/25, 11/01/25, 11/15/25... | **[BIWEEKLY]**
+
+**Pure Analyzer 2 (AUC):**
+- **Every other Saturday, 3:00 AM** - Night shift: George (MLS)
+- **Start Date:** 10/11/25
+- **Next dates:** 10/25/25, 11/08/25, 11/22/25... | **[BIWEEKLY]**
+
+---
+
+#### **MONTHLY QC Assignments:**
+
+**2nd Wednesday of Month:**
+- **Hematek (Both)** - Day shift: Booker (MLT-MOB), Emily (MLT-AUC) | **[MONTHLY]**
+- **GeneXpert (Both)** - Night shift: George (MLS), Boyet (MLT) | **[MONTHLY]**
+
+**2nd Thursday of Month:**
+- **Stago (Both)** - 9:00 PM Evening shift: Tracy (MLT), Lionel (MLT), Albert (MLS) | **[MONTHLY]**
+
+**3rd Tuesday of Month:**
+- **Previ Gram Stain (MOB)** - Day shift: Booker (MLT), Lorraine (MLA can assist) | **[MONTHLY]**
+
+**3rd Wednesday of Month:**
+- **MedTox (AUC)** - Day shift: Emily (MLT) | **[MONTHLY]**
+
+**3rd Thursday of Month:**
+- **Novus (MOB)** - Day shift: Lorraine (MLA) | **[MONTHLY]**
+
+**3rd Saturday of Month:**
+- **Pure Analyzers (Both AUC & MOB)** - 3:00 AM Night shift: George (MLS) | **[MONTHLY]**
+
+---
+
+**MLA RESTRICTION REMINDER:**
+- **Lorraine (MLA)** can ONLY perform: Urines, Kits QC, Assist with QC/Maint, Inventory, SQA Daily
+- **ALL other QC** must be assigned to MLT or MLS staff
+
 ---
 
 ## Overview
@@ -698,3 +788,4 @@ Expected output: `"state": "success"`
 - [ ] GitHub Pages deployment triggered
 - [ ] Deployment status shows "success"
 - [ ] Live site displays correct data (after cache clear)
+- to memorize
