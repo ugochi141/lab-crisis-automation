@@ -18,13 +18,16 @@ When updating https://ugochi141.github.io/largo-lab-portal/:
 - **Location:** Line ~1487 in `Daily Schedule.html`
 - **Why:** Hardcoded dates show wrong schedule regardless of data updates
 
-### 3. **Critical Nicknames**
+### 3. **Critical Nicknames & Break Times**
 - Johnette Brooks → **'Netta'** (NOT 'Johnette')
 - Raquel Grayson → **'Raquel'** (NOT 'Rachel')
 - Maxwell Booker → **'Booker'** (NOT 'Maxwell')
 - Jacqueline Liburd → **'Jackie'** (NOT 'Jacqueline')
 - Emmanuel Lejano → **'Boyet'**
 - Ogheneochuko Eshofa → **'Tracy'**
+
+**Netta's Standard Break Times (ALWAYS):**
+- `breaks: 'Break 1: 9:00a-9:15a | Lunch: 11:00a-11:30a | Break 2: 1:00p-1:15p'`
 
 ### 4. **Rotation Policies**
 - **Rotate phlebotomists on what they can do**
