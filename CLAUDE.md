@@ -183,6 +183,160 @@ When updating https://ugochi141.github.io/largo-lab-portal/:
 
 ---
 
+### 9. **Laboratory Technician Rotation Assignment Templates - # TO MEMORIZE**
+
+**CRITICAL ROTATION POLICY:** Rotate ALL laboratory technicians through bench assignments using the standardized templates below. All assignments must include QC/Maintenance tasks due that day with frequency tags [DAILY], [WEEKLY], [BIWEEKLY], [MONTHLY].
+
+---
+
+#### **DAY SHIFT CONFIGURATIONS**
+
+**Configuration 1: Three Techs + One MLA (1 MOB + 2 AUC)**
+
+**MOB (1 Tech):**
+- Assignment: `MOB - [Pure 1 QC @7:30am if applicable], SQA Daily [DAILY], Hematek Daily QC [DAILY], Previ Gram [DAILY], [Add Weekly/Biweekly/Monthly QC due that day], Wipe Benches, Clean Microscopes, Log QC`
+
+**MOB (1 MLA - Lorraine ONLY):**
+- Assignment: `MOB - Assist with QC/Maint, Inventory, SQA Daily [DAILY], Hematek Daily QC [DAILY], Previ Gram [DAILY], Urines, Kits ONLY (MLA Restriction), [Add Weekly tasks if Lorraine can assist: Novus Wed, Previ Gram Assist Tue], Wipe Benches, Clean Microscopes`
+
+**AUC Front (1 Tech):**
+- Assignment: `AUC Front - Processing/Urines, Kits QC [DAILY], Stago Maint, [Add Weekly/Biweekly/Monthly QC due that day], Wipe Benches, Clean Microscopes, Log QC`
+
+**AUC Back (1 Tech):**
+- Assignment: `AUC Back - Hematology, Chemistry, Molecular, MedTox QC [DAILY], Sysmex Startup/QC [DAILY], Hematek Startup/QC [DAILY], Stago Maint, [Add Weekly/Biweekly/Monthly QC due that day], Wipe Benches, Clean Microscopes, Log QC`
+
+---
+
+**Configuration 2: Two Techs Only (2 AUC)**
+
+**AUC Front (1 Tech):**
+- Assignment: `AUC Front - Processing/Urines, Kits QC [DAILY], Stago Maint, [Add Weekly/Biweekly/Monthly QC due that day for AUC], Wipe Benches, Clean Microscopes, Log QC`
+
+**AUC Back (1 Tech):**
+- Assignment: `AUC Back - Hematology, Chemistry, Molecular, MedTox QC [DAILY], Sysmex Startup/QC [DAILY], Hematek Startup/QC [DAILY], Stago Maint, [Add Weekly/Biweekly/Monthly QC due that day for AUC], Wipe Benches, Clean Microscopes, Log QC`
+
+**NOTE:** When only 2 techs on duty, they split all AUC QC/Maint responsibilities. MOB tasks are reassigned to AUC techs.
+
+---
+
+**Configuration 3: Three Techs Only (3 AUC)**
+
+**AUC Tech 1:**
+- Assignment: `AUC - Urines, Kits QC [DAILY], Stago Maint, [Add Weekly/Biweekly/Monthly QC due that day], Wipe Benches, Clean Microscopes, Log QC`
+
+**AUC Tech 2:**
+- Assignment: `AUC - Processing, [Add Weekly/Biweekly/Monthly QC due that day], Wipe Benches, Clean Microscopes, Log QC`
+
+**AUC Tech 3:**
+- Assignment: `AUC - Hematology, Chemistry, Molecular, MedTox QC [DAILY], Sysmex Startup/QC [DAILY], Hematek Startup/QC [DAILY], [Add Weekly/Biweekly/Monthly QC due that day], Wipe Benches, Clean Microscopes, Log QC`
+
+**NOTE:** When 3 techs at AUC, split processing and bench work. MOB QC must be reassigned to AUC techs.
+
+---
+
+#### **EVENING SHIFT CONFIGURATIONS**
+
+**Configuration 1: Two Techs (2 AUC)**
+
+**AUC Front (1 Tech):**
+- Assignment: `AUC - Processing/Urines, Kits, Stago, ESR 10% Check QC [DAILY], Stago Maint, [Add Weekly/Biweekly/Monthly QC due that day for BOTH AUC & MOB if relevant], Wipe Benches, Clean Microscopes, Log QC`
+
+**AUC Back (1 Tech):**
+- Assignment: `AUC - Hematology, Chemistry, Molecular QC, [Add Weekly/Biweekly/Monthly QC due that day for BOTH AUC & MOB if relevant], Wipe Benches, Clean Microscopes, Log QC`
+
+**NOTE:** Evening shift with 2 techs covers QC for both AUC and MOB locations if tasks are scheduled during their shift.
+
+---
+
+**Configuration 2: Three Techs (3 AUC)**
+
+**AUC Tech 1:**
+- Assignment: `AUC - Urines, Kits, Stago, ESR 10% Check QC [DAILY], Stago Maint, [Add Weekly/Biweekly/Monthly QC due that day for BOTH AUC & MOB if relevant], Wipe Benches, Clean Microscopes, Log QC`
+
+**AUC Tech 2:**
+- Assignment: `AUC - Processing, [Add Weekly/Biweekly/Monthly QC due that day for BOTH AUC & MOB if relevant], Wipe Benches, Clean Microscopes, Log QC`
+
+**AUC Tech 3:**
+- Assignment: `AUC - Hematology, Chemistry, Molecular QC, [Add Weekly/Biweekly/Monthly QC due that day for BOTH AUC & MOB if relevant], Wipe Benches, Clean Microscopes, Log QC`
+
+**NOTE:** Evening shift with 3 techs covers QC for both AUC and MOB locations if tasks are scheduled during their shift.
+
+---
+
+#### **NIGHT SHIFT CONFIGURATION**
+
+**All Night Shift Techs:**
+- Base Assignment: `AUC Night Coverage - MiniSed QC [DAILY], GeneXpert QC [DAILY], [Add Weekly/Biweekly/Monthly QC due that day for BOTH AUC & MOB], Wipe Benches, Clean Microscopes, Log QC`
+
+**Specific Night Tech Assignments:**
+
+**George (MLS - 11:30p-8a):**
+- Assignment: `AUC Night Coverage - Pure 2 QC @3am [DAILY], MiniSed QC [DAILY], GeneXpert QC [DAILY], [Add Weekly QC: Novus Tue after 3am, GeneXpert Thu], [Add Biweekly: Pure 2 every other Sat @3am], [Add Monthly: GeneXpert 2nd Wed, Pure Analyzers Both 3rd Sat @3am], Wipe Benches, Clean Microscopes, Log QC`
+
+**Boyet (MLT - 9:30p-6a):**
+- Assignment: `AUC Night Coverage - MiniSed QC [DAILY], GeneXpert QC [DAILY], [Add Weekly: GeneXpert Thu], [Add Monthly: GeneXpert 2nd Wed], Wipe Benches, Clean Microscopes, Log QC`
+
+**Jackie (MLS - 12a-6:30a):**
+- Assignment: `AUC Night Coverage - MiniSed QC [DAILY], Wipe Benches, Clean Microscopes, Log QC`
+
+**NOTE:** Night shift covers all QC/Maintenance tasks scheduled between 9:30pm - 8:00am for BOTH AUC and MOB locations.
+
+---
+
+#### **ROTATION IMPLEMENTATION RULES**
+
+1. **Rotate ALL techs** through bench assignments (AUC Front, AUC Back, MOB)
+2. **Never rotate MLA** - Lorraine stays at MOB with restricted duties
+3. **Add QC based on date** - Check CLAUDE.md Section #8 for tasks due that specific day
+4. **Use frequency tags** - [DAILY], [WEEKLY], [BIWEEKLY], [MONTHLY]
+5. **Evening covers both locations** - If QC is scheduled during evening hours and applies to MOB or AUC, evening shift must complete
+6. **Night covers both locations** - All night QC tasks (9:30pm - 8am) assigned to night techs regardless of location
+7. **Universal tasks always included** - Wipe Benches, Clean Microscopes, Log QC for ALL staff
+
+---
+
+#### **ASSIGNMENT TEMPLATE EXAMPLES**
+
+**Example: Tuesday Day Shift (3 Techs + MLA at MOB/AUC)**
+
+Based on Section #8, Tuesday has:
+- Previ Gram Stain (MOB) [WEEKLY-Tue] - Day shift
+- Novus (AUC) [WEEKLY-Tue after 3am] - Night shift
+
+**MOB Tech:** `MOB - Pure 1 QC @7:30am [DAILY], Kits QC [DAILY], Sysmex Startup/QC [DAILY], Hematek Startup/QC [DAILY], Previ Gram Stain [DAILY], Previ Gram Stain [WEEKLY-Tue], Stago Maint, Beads Maint, Wipe Benches, Clean Microscopes, Log QC`
+
+**MOB MLA:** `MOB - Assist with QC/Maint, Inventory, SQA Daily [DAILY], Hematek Daily QC [DAILY], Previ Gram [DAILY], Previ Gram Assist [WEEKLY-Tue], Urines, Kits ONLY (MLA Restriction), Wipe Benches, Clean Microscopes`
+
+**AUC Front Tech:** `AUC Front - Processing/Urines, Kits QC [DAILY], Stago Maint, Wipe Benches, Clean Microscopes, Log QC`
+
+**AUC Back Tech:** `AUC Back - Hematology, Chemistry, Molecular, MedTox QC [DAILY], Sysmex Startup/QC [DAILY], Hematek Startup/QC [DAILY], Stago Maint, Wipe Benches, Clean Microscopes, Log QC`
+
+---
+
+**Example: Wednesday Evening Shift (3 Techs AUC)**
+
+Based on Section #8, Wednesday has:
+- Stago (Both AUC & MOB) [WEEKLY-Wed] - Evening shift
+
+**AUC Tech 1:** `AUC - Urines, Kits, Stago, ESR 10% Check QC [DAILY], Stago Maint, Stago [WEEKLY-Wed Both], Wipe Benches, Clean Microscopes, Log QC`
+
+**AUC Tech 2:** `AUC - Processing, Wipe Benches, Clean Microscopes, Log QC`
+
+**AUC Tech 3:** `AUC - Hematology, Chemistry, Molecular QC, Stago [WEEKLY-Wed Both], Wipe Benches, Clean Microscopes, Log QC`
+
+---
+
+**Example: Thursday Night Shift**
+
+Based on Section #8, Thursday has:
+- GeneXpert (Both AUC & MOB) [WEEKLY-Thu] - Night shift
+
+**George (MLS):** `AUC Night Coverage - Pure 2 QC @3am [DAILY], MiniSed QC [DAILY], GeneXpert QC [DAILY], GeneXpert [WEEKLY-Thu Both], Wipe Benches, Clean Microscopes, Log QC`
+
+**Boyet (MLT):** `AUC Night Coverage - MiniSed QC [DAILY], GeneXpert QC [DAILY], GeneXpert [WEEKLY-Thu Both], Wipe Benches, Clean Microscopes, Log QC`
+
+---
+
 ## Overview
 
 This codebase contains multiple healthcare informatics and bioinformatics projects focused on laboratory systems, data analysis, and academic coursework. The primary technologies are Python (for backend/data processing) and React (for frontend applications).
