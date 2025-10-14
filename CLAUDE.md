@@ -337,6 +337,196 @@ Based on Section #8, Thursday has:
 
 ---
 
+### 10. **Phlebotomy Rotation Criteria - # TO MEMORIZE**
+
+**CRITICAL ROTATION POLICY:** Rotate phlebotomists on what they can do. All assignments must follow standardized role criteria and use correct assignment title format: **"Draw Patients/[role]"** (e.g., Draw Patients/Opener, Draw Patients/Runner).
+
+---
+
+#### **ROTATION ASSIGNMENT CRITERIA BY TRAINING STATUS**
+
+**Phlebotomists Trained in Processing:**
+- Can be assigned: **Processor**, **Backup Processor**, **Draw Patients/Runner**, **Draw Patients/Opener**
+- Assignment rotation: Processor → Backup Processor → Draw Patients/Runner → Draw Patients/Opener
+- Must rotate through all roles they are qualified for
+
+**Phlebotomists NOT Trained in Processing:**
+- Can be assigned: **Draw Patients/Runner**, **Draw Patients/Opener**, **Draw Patients/Hot Seat**, **Draw Patients/Closer**
+- Assignment rotation: Runner → Opener → Hot Seat → Closer
+- Dayshift: Focus on Draw Patients/Runner
+- Evening shift: Focus on Draw Patients/Hot Seat (whoever is not closer)
+
+---
+
+#### **SHIFT-SPECIFIC ROLE ASSIGNMENTS**
+
+**DAY SHIFT ROLES:**
+
+**Opener (First Shift of the Day):**
+- **Assignment Title**: `'Draw Patients/Opener'`
+- **Who**: First shift starting 6:00am - 7:00am
+- **Core Responsibility**: Temp check in phleb area, clean and stock draw stations
+- **Accountability**: Area must be fully stocked and ready for shift start, check tubes expiration dates at each station
+- **Rotation**: Any phlebotomist can be opener
+
+**Processor (Dayshift):**
+- **Assignment Title**: `'Processor'` (stands alone, no "Draw Patients/" prefix)
+- **Who**: Phlebotomists trained in processing ONLY
+- **Core Responsibility**: Process for the entire shift
+- **Accountability**: Do not leave processing station until end of shift, remain processing until shift complete and handoff sheet passed to evening shift, MUST complete the 10am run
+- **Rotation**: Rotate among trained processors
+- **Trained Processors (Day)**: Anne Saint Phirin, Farah Moise, Manoucheca Onuma (Mimi), Youlana Miah, Christina Bolden-Davis, Emmanuella Theodore (Emma)
+
+**Backup Processor:**
+- **Assignment Title**: `'Draw Patients (Backup Processor)'` (uses parentheses)
+- **Who**: Whoever can process for day shift
+- **Core Responsibility**: Assist processing when business allows
+- **Accountability**: When processing assistance isn't needed, you are drawing patients
+- **Rotation**: Rotate among all trained processors not assigned as primary Processor
+
+**Runner (Dayshift):**
+- **Assignment Title**: `'Draw Patients/Runner'`
+- **Who**: Any phlebotomist, prioritize those not trained in processing
+- **Core Responsibility**: Deliver labs every 30 minutes
+- **Accountability**: Specimens must be delivered promptly to Lab (AUC/MOB) for prompt testing
+- **Rotation**: Rotate through all staff
+
+---
+
+**EVENING SHIFT ROLES:**
+
+**Evening Processor:**
+- **Assignment Title**: `'Processor'` (stands alone, no "Draw Patients/" prefix)
+- **Who**: Phlebotomists trained in processing ONLY
+- **Core Responsibility**: Finalize logs and function as Processor 2/3 initially
+- **Accountability**: Do not interrupt the dayshift processing workflow, MUST place both day and evening shift communication logs in the designated box, sorted by date
+- **Rotation**: Rotate among trained evening processors
+- **Trained Processors (Evening)**: Danalisa Hayes, Nichole Fauntleroy
+
+**Hot Seat (Evenings):**
+- **Assignment Title**: `'Draw Patients/Hot Seat'`
+- **Who**: Whoever is NOT a closer in evening shifts
+- **Core Responsibility**: Flexible role coverage as business needs dictate
+- **Rotation**: Rotate through all evening staff who are not assigned as Closer
+
+**Closer:**
+- **Assignment Title**: `'Draw Patients/Closer'`
+- **Who**: Last shift OR 2nd to last shift of the day (typically 2:00pm - 10:30pm)
+- **Core Responsibility**: Restock phlebotomy area
+- **Accountability**: Area must be left complete and ready for the next shift, check tubes expiration dates at each station
+- **Rotation**: Rotate through evening staff
+
+---
+
+#### **ASSIGNMENT TITLE FORMAT RULES**
+
+**Standard Format:**
+- **Primary role first**: `"Draw Patients/[specific role]"`
+- **Examples**:
+  - `"Draw Patients/Opener"`
+  - `"Draw Patients/Runner"`
+  - `"Draw Patients/Hot Seat"`
+  - `"Draw Patients/Closer"`
+
+**Exceptions:**
+1. **Processor**: Stands alone (no "Draw Patients/" prefix)
+   - Correct: `"Processor"`
+   - Incorrect: `"Draw Patients/Processor"`
+
+2. **Backup Processor**: Uses parentheses
+   - Correct: `"Draw Patients (Backup Processor)"`
+   - Incorrect: `"Draw Patients/Backup Processor"`
+
+---
+
+#### **ROTATION IMPLEMENTATION RULES**
+
+1. **Rotate ALL phlebotomists** on roles they can do based on training status
+2. **Processing-trained staff**: Must rotate through Processor, Backup Processor, Runner, Opener roles
+3. **Non-processing staff**: Must rotate through Runner, Opener, Hot Seat, Closer roles
+4. **Dayshift priority for non-processors**: Assign as Draw Patients/Runner
+5. **Evening shift priority for non-processors**: Assign as Draw Patients/Hot Seat (if not Closer)
+6. **First shift of day**: MUST have an Opener
+7. **Last/2nd to last shift of day**: MUST have a Closer
+8. **Specimens delivery**: MUST have a Runner during dayshift for every-30-minute delivery
+9. **10am run**: Dayshift Processor MUST complete this critical run
+
+---
+
+#### **PROCESSING TRAINING STATUS**
+
+**✓ Fully Trained (Day Shift):**
+- Anne Saint Phirin
+- Farah Moise
+- Manoucheca Onuma (Mimi)
+- Youlana Miah
+- Christina Bolden-Davis
+- Emmanuella Theodore (Emma)
+
+**✓ Fully Trained (Evening Shift):**
+- Danalisa Hayes
+- Nichole Fauntleroy
+
+**⚠ Needs Training:**
+- Johnette Brooks (Netta)
+- Micaela Scarborough
+- Taric White
+
+---
+
+#### **ROTATION TEMPLATE EXAMPLES**
+
+**Example: Day Shift with Processing-Trained Staff**
+
+**Christina (Trained Processor):**
+- Week 1: `'Processor'`
+- Week 2: `'Draw Patients (Backup Processor)'`
+- Week 3: `'Draw Patients/Runner'`
+- Week 4: `'Draw Patients/Opener'`
+- Week 5: Cycle repeats from Processor
+
+**Netta (NOT Trained in Processing):**
+- Week 1: `'Draw Patients/Runner'` (dayshift priority)
+- Week 2: `'Draw Patients/Opener'`
+- Week 3: `'Draw Patients/Runner'`
+- Week 4: `'Draw Patients/Opener'`
+- Week 5: Cycle repeats
+
+---
+
+**Example: Evening Shift Assignments**
+
+**Danalisa (Trained Processor - Evening):**
+- Week 1: `'Processor'`
+- Week 2: `'Draw Patients/Closer'`
+- Week 3: `'Processor'`
+- Week 4: `'Draw Patients/Hot Seat'`
+- Week 5: Cycle repeats
+
+**Shannon (NOT Trained in Processing - Evening):**
+- Week 1: `'Draw Patients/Closer'`
+- Week 2: `'Draw Patients/Hot Seat'`
+- Week 3: `'Draw Patients/Closer'`
+- Week 4: `'Draw Patients/Hot Seat'`
+- Week 5: Cycle repeats
+
+---
+
+#### **CRITICAL REMINDERS**
+
+1. ✅ **Always use correct assignment title format**: "Draw Patients/[role]"
+2. ✅ **Processor stands alone**: "Processor" (no Draw Patients prefix)
+3. ✅ **Backup Processor uses parentheses**: "Draw Patients (Backup Processor)"
+4. ✅ **Rotate based on training status**: Processing-trained vs. non-processing staff
+5. ✅ **First shift of day must be Opener**: Clean, stock, temp check
+6. ✅ **Last/2nd to last shift must be Closer**: Restock, prep for next shift
+7. ✅ **Dayshift must have Runner**: Every-30-minute lab delivery to AUC/MOB
+8. ✅ **Evening Hot Seat rule**: Whoever is NOT a closer should be Hot Seat
+9. ✅ **10am run is critical**: Dayshift Processor must complete before end of shift
+10. ✅ **Specimens delivery is time-sensitive**: Runner must deliver promptly for testing
+
+---
+
 ## Overview
 
 This codebase contains multiple healthcare informatics and bioinformatics projects focused on laboratory systems, data analysis, and academic coursework. The primary technologies are Python (for backend/data processing) and React (for frontend applications).
