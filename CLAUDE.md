@@ -35,6 +35,27 @@ When updating https://ugochi141.github.io/largo-lab-portal/:
 - Exception: "Processor" (stands alone, no prefix)
 - Exception: "Draw Patients (Backup Processor)" (uses parentheses)
 
+### 6. **QC/Maintenance Schedule Quick Reference**
+
+**Weekly Tasks:**
+- **Tuesday:** Previ Gram (MOB day), Novus (AUC night after 3am)
+- **Wednesday:** Novus (MOB day), Stago (Both evening)
+- **Thursday:** GeneXpert (Both night)
+- **Saturday:** Sysmex XN Shutdown (9pm AUC, 10pm MOB)
+- **Weekly:** Hematek (Both)
+
+**Biweekly Tasks:**
+- **Every other Friday 10pm:** Pure 1 (MOB) - starts 10/04/25
+- **Every other Saturday 3am:** Pure 2 (AUC) - starts 10/11/25
+
+**Monthly Tasks:**
+- **2nd Wednesday:** Hematek (Both day), GeneXpert (Both night)
+- **2nd Thursday 9pm:** Stago (Both evening)
+- **3rd Tuesday:** Previ Gram (MOB day)
+- **3rd Wednesday:** MedTox (AUC day)
+- **3rd Thursday:** Novus (MOB day)
+- **3rd Saturday 3am:** Pure Analyzers (Both night)
+
 ---
 
 ## Overview
