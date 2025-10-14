@@ -2,6 +2,41 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+---
+
+## 🔥 CRITICAL - # TO MEMORIZE
+
+### 1. **Always Use MLS, NEVER MT**
+- Medical Laboratory Scientists = **MLS** (correct)
+- Medical Technologists = **MLS** (correct)
+- MT = **INCORRECT** - always change to MLS
+
+### 2. **GitHub Pages Deployment - Dynamic Date Required**
+When updating https://ugochi141.github.io/largo-lab-portal/:
+- **ALWAYS verify:** `let currentDate = new Date();` (dynamic)
+- **NEVER use:** `let currentDate = new Date('2025-10-13');` (hardcoded)
+- **Location:** Line ~1487 in `Daily Schedule.html`
+- **Why:** Hardcoded dates show wrong schedule regardless of data updates
+
+### 3. **Critical Nicknames**
+- Johnette Brooks → **'Netta'** (NOT 'Johnette')
+- Raquel Grayson → **'Raquel'** (NOT 'Rachel')
+- Maxwell Booker → **'Booker'** (NOT 'Maxwell')
+- Jacqueline Liburd → **'Jackie'** (NOT 'Jacqueline')
+- Emmanuel Lejano → **'Boyet'**
+- Ogheneochuko Eshofa → **'Tracy'**
+
+### 4. **Rotation Policies**
+- **Rotate phlebotomists on what they can do**
+- **Rotate ALL staff on bench assignments**
+
+### 5. **Assignment Title Format**
+- Standard: "Draw Patients/[role]" → "Draw Patients/Opener", "Draw Patients/Runner"
+- Exception: "Processor" (stands alone, no prefix)
+- Exception: "Draw Patients (Backup Processor)" (uses parentheses)
+
+---
+
 ## Overview
 
 This codebase contains multiple healthcare informatics and bioinformatics projects focused on laboratory systems, data analysis, and academic coursework. The primary technologies are Python (for backend/data processing) and React (for frontend applications).
