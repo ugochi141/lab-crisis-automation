@@ -401,3 +401,95 @@ Order staff entries by their `startTime` value in ascending order:
 - 4:00pm check
 
 **Note:** Temperature monitoring must be documented per CLIA/CAP requirements. Ensure all checks are logged in TempTrak system.
+
+---
+
+## GitHub Pages Deployment Process
+
+### # TO MEMORIZE - Proper GitHub Pages Update Workflow
+
+**CRITICAL:** When updating the largo-lab-portal GitHub Pages site, follow this exact process:
+
+#### Step 1: Update the Schedule Data (JavaScript Object)
+1. Locate the schedule data in `/Users/ugochi141/Documents/largo-lab-portal/Schedules/Daily Schedule.html`
+2. Find the appropriate date entry (e.g., `'2025-10-14': { phleb: [...], lab: [...] }`)
+3. Update the JavaScript data structure with schedule changes
+4. Ensure all nicknames, assignments, and roles are correct
+
+#### Step 2: Verify Dynamic Date Handling
+**CRITICAL CHECK:** Ensure the page uses dynamic date, NOT hardcoded dates
+```javascript
+// CORRECT (uses current date):
+let currentDate = new Date();
+
+// WRONG (hardcoded date will show wrong schedule):
+let currentDate = new Date('2025-10-13');
+```
+
+**Location in file:** Search for `let currentDate = new Date` (around line 1487)
+**Why this matters:** If hardcoded, the page will ALWAYS show that specific date's schedule, ignoring your data updates.
+
+#### Step 3: Commit and Push Changes
+```bash
+cd "/Users/ugochi141/Documents/largo-lab-portal"
+git add "Schedules/Daily Schedule.html"
+git commit -m "Descriptive commit message"
+git push
+```
+
+#### Step 4: Verify GitHub Pages Deployment
+```bash
+# Check latest deployment status
+gh api repos/ugochi141/largo-lab-portal/deployments --jq '.[0] | {created_at, sha: .sha[0:7], environment, status}'
+
+# Wait 30-60 seconds for deployment to complete
+sleep 30
+
+# Verify deployment succeeded
+gh api repos/ugochi141/largo-lab-portal/deployments --jq '.[0].id' | xargs -I {} gh api repos/ugochi141/largo-lab-portal/deployments/{}/statuses --jq '.[0] | {state, created_at}'
+```
+
+Expected output: `"state": "success"`
+
+#### Step 5: Verify Live Site
+- Wait 1-2 minutes for CDN cache to clear
+- Visit: https://ugochi141.github.io/largo-lab-portal/Schedules/Daily%20Schedule.html
+- Check that the current date's schedule displays correctly
+- Verify all updates are visible (callouts removed, new assignments, correct nicknames)
+
+### Common GitHub Pages Issues
+
+**Issue 1: "I pushed changes but the live site shows old data"**
+- **Cause:** Hardcoded date in JavaScript (e.g., `new Date('2025-10-13')`)
+- **Fix:** Change to `new Date()` to use current date dynamically
+- **Location:** Line ~1487 in Daily Schedule.html
+
+**Issue 2: "Deployment shows success but site not updating"**
+- **Cause:** Browser cache or CDN cache delay
+- **Fix 1:** Hard refresh browser (Cmd+Shift+R on Mac, Ctrl+Shift+R on Windows)
+- **Fix 2:** Wait 2-3 minutes for CDN cache to expire
+- **Fix 3:** Open in incognito/private browser window
+
+**Issue 3: "Site shows JavaScript errors or blank tables"**
+- **Cause:** Syntax error in schedule data (missing comma, bracket, quote)
+- **Fix:** Check browser console for errors, validate JSON syntax
+- **Prevention:** Always test locally before pushing
+
+### GitHub Pages Configuration
+- **Repository:** https://github.com/ugochi141/largo-lab-portal
+- **Live Site:** https://ugochi141.github.io/largo-lab-portal/
+- **Branch:** main
+- **Deploy Source:** Legacy (root of main branch)
+- **Auto-deploy:** Enabled (deploys on every push to main)
+- **Typical Deploy Time:** 30-60 seconds
+
+### Deployment Verification Checklist
+- [ ] JavaScript data structure updated with correct schedule
+- [ ] Date handling is dynamic (`new Date()` not hardcoded)
+- [ ] All nicknames match CLAUDE.md reference list
+- [ ] All "MT" changed to "MLS" (if applicable)
+- [ ] Changes committed with descriptive message
+- [ ] Changes pushed to main branch
+- [ ] GitHub Pages deployment triggered
+- [ ] Deployment status shows "success"
+- [ ] Live site displays correct data (after cache clear)
