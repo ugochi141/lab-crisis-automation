@@ -20,6 +20,8 @@ When updating https://ugochi141.github.io/largo-lab-portal/:
 
 ### 3. **Critical Nicknames & Break Times**
 - Johnette Brooks → **'Netta'** (NOT 'Johnette')
+- Emmanuella Theodore → **'Emma'** (NOT 'Emmanuella')
+- Manoucheca Onuma → **'Mimi'** (NOT 'Manoucheca')
 - Raquel Grayson → **'Raquel'** (NOT 'Rachel')
 - Maxwell Booker → **'Booker'** (NOT 'Maxwell')
 - Jacqueline Liburd → **'Jackie'** (NOT 'Jacqueline')
