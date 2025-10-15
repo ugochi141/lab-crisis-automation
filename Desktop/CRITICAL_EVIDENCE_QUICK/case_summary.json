@@ -1,0 +1,45 @@
+{
+  "case": "Whistleblower Retaliation - Largo Laboratory",
+  "complainant": "Ugochi L. Ndubuisi",
+  "deadline": "November 7, 2025",
+  "critical_timeline": {
+    "2025-07-14": {
+      "event": "Investigation Ordered",
+      "actor": "Director Nathaniel Burmeister",
+      "significance": "Management directed investigation"
+    },
+    "2025-09-29": {
+      "event": "Analysis Provided",
+      "actor": "Ugochi L. Ndubuisi",
+      "response": "Director acknowledged validity",
+      "significance": "Concerns validated by management"
+    },
+    "2025-10-03_0821": {
+      "event": "Whistleblowing",
+      "content": "41.23% failure rate shared with staff",
+      "significance": "Protected activity - workplace safety"
+    },
+    "2025-10-03_0835": {
+      "event": "First Censorship Demand",
+      "content": "Messages 'bordering on inappropriate'"
+    },
+    "2025-10-03_0850": {
+      "event": "Second Censorship Demand",
+      "content": "Delete the post"
+    },
+    "2025-10-03_1219": {
+      "event": "Third Censorship Demand",
+      "content": "This is a directive"
+    },
+    "2025-10-03_1630": {
+      "event": "Fourth Censorship Demand",
+      "content": "Final demand to remove"
+    },
+    "2025-10-08": {
+      "event": "Final Written Warning",
+      "significance": "First discipline in 9 months - clear retaliation"
+    }
+  },
+  "files_organized": 24,
+  "generated": "2025-10-14T12:58:14.426713"
+}

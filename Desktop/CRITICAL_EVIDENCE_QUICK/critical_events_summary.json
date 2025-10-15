@@ -1,0 +1,68 @@
+{
+  "critical_events_found": {
+    "Sept_29_Analysis": [
+      {
+        "file": "Screenshot 2025-10-14 at 8.56.10\u202fAM.png",
+        "date": "Date not found",
+        "time": "",
+        "snippet": "argo Lab Team Chat!  G \u00a9 ohn and Nathaniel . \u201cThe culture issue runs deeper than individual performance or staffi",
+        "matches": 2
+      },
+      {
+        "file": "Screenshot 2025-10-07 at 4.06.55\u202fPM.png",
+        "date": "Date not found",
+        "time": "",
+        "snippet": "a call while I'm stillin my office?  9729616  The culture issue runs deeper than individual performance or staffi",
+        "matches": 2
+      },
+      {
+        "file": "Screenshot 2025-10-14 at 8.56.16\u202fAM.png",
+        "date": "Date not found",
+        "time": "",
+        "snippet": "thaniel Burmeister UUgochiL Ndubuisi 9/29/20  The culture issue runs deeper than individual performance or Largo ",
+        "matches": 2
+      },
+      {
+        "file": "Screenshot 2025-10-07 at 4.06.57\u202fPM.png",
+        "date": "Date not found",
+        "time": "",
+        "snippet": "y office? G \u2014@ Mentions  Q) Followed threads  The culture issue runs deeper than individual performance or staffi",
+        "matches": 2
+      }
+    ],
+    "July_14_Investigation": [
+      {
+        "file": "Screenshot 2025-10-03 at 8.35.06\u202fPM.png",
+        "date": "Date not found",
+        "time": "1:03 AM",
+        "snippet": "his as an overall cultural issue that needs to be investigated Largo Leads  Nathaniel Burmeister 7/14 1156 AM D",
+        "matches": 3
+      },
+      {
+        "file": "Screenshot 2025-10-07 at 4.06.23\u202fPM.png",
+        "date": "Date not found",
+        "time": "",
+        "snippet": "m Looks like M,7,W all had a pretty rough time on second shift for delays. With T,F looking better  @ worstions ",
+        "matches": 2
+      }
+    ],
+    "Oct_3_Censorship": [
+      {
+        "file": "Screenshot 2025-10-07 at 4.07.16\u202fPM.png",
+        "date": "Date not found",
+        "time": "8:50 AM",
+        "snippet": "ument in public forum.  11am also asking that you delete the post made in the largo teams chat  jel Burmei",
+        "matches": 4
+      },
+      {
+        "file": "Screenshot 2025-10-14 at 8.56.44\u202fAM.png",
+        "date": "Date not found",
+        "time": "4:22 PM",
+        "snippet": "Worktions Shanthi AHayes lam also asking that you delete the post made inthe argo teams chat @ sanan and t",
+        "matches": 2
+      }
+    ]
+  },
+  "files_processed": 50,
+  "matches": []
+}
