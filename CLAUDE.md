@@ -527,6 +527,89 @@ Based on Section #8, Thursday has:
 
 ---
 
+### 11. **Break Time Staggering - NO OVERLAPS ALLOWED - # TO MEMORIZE**
+
+**CRITICAL OPERATIONAL RULE:** Staff breaks MUST be staggered to prevent coverage gaps and lab draw delays. Overlapping breaks cause service interruptions and patient delays.
+
+---
+
+#### **BREAK STAGGERING PRINCIPLES**
+
+1. **NO TWO STAFF MEMBERS ON BREAK AT THE SAME TIME** (within same department)
+2. **Minimum 15-minute gap** between breaks
+3. **Netta's break times are FIXED** (per Section #3) - stagger all other staff around hers
+4. **Verify no overlaps** before finalizing any schedule
+
+---
+
+#### **STAGGERING PATTERN**
+
+**For staff working same shift, stagger breaks in 15-minute increments:**
+
+**Example - 5 Day Shift Phlebotomists:**
+- Staff 1: Break 1: 8:00a-8:15a | Lunch: 10:30a-11:00a | Break 2: 1:45p-2:00p
+- Staff 2 (Netta): Break 1: 9:00a-9:15a | Lunch: 11:00a-11:30a | Break 2: 1:00p-1:15p *(FIXED)*
+- Staff 3: Break 1: 8:15a-8:30a | Lunch: 11:30a-12:00p | Break 2: 1:15p-1:30p
+- Staff 4: Break 1: 8:30a-8:45a | Lunch: 12:00p-12:30p | Break 2: 1:30p-1:45p
+- Staff 5: Break 1: 8:45a-9:00a | Lunch: 12:30p-1:00p | Break 2: 2:00p-2:15p
+
+**Result:** No overlaps, continuous coverage throughout the day
+
+---
+
+#### **OVERLAP DETECTION CHECKLIST**
+
+Before finalizing any schedule, verify:
+
+1. ✅ **List all breaks chronologically** for each shift (day/evening/night)
+2. ✅ **Check for time conflicts** - no two staff on break simultaneously
+3. ✅ **Verify Netta's fixed times** are preserved: 9:00a-9:15a, 11:00a-11:30a, 1:00p-1:15p
+4. ✅ **Maintain 15-min spacing** between consecutive breaks
+5. ✅ **Test each shift separately** (day phleb, evening phleb, day lab, evening lab, night lab)
+
+---
+
+#### **COMMON OVERLAP SCENARIOS TO AVOID**
+
+❌ **BAD - Multiple overlaps:**
+```
+Christina: Lunch 10:00a-10:30a
+Anne: Break 1 10:00a-10:15a  ← OVERLAP with Christina's lunch
+Angel: Break 1 10:15a-10:30a  ← OVERLAP with Christina's lunch
+```
+
+✅ **GOOD - No overlaps:**
+```
+Christina: Lunch 10:30a-11:00a
+Anne: Break 1 8:30a-8:45a
+Angel: Break 1 8:45a-9:00a
+```
+
+---
+
+#### **IMPACT OF OVERLAPPING BREAKS**
+
+- **Lab draw delays** - insufficient staff to handle patient volume
+- **Specimen processing delays** - Runner/Processor both on break
+- **Patient wait times increase** - reduced draw station coverage
+- **Staff stress** - remaining staff overwhelmed during overlap periods
+- **CLIA compliance risk** - inadequate staffing levels
+
+---
+
+#### **IMPLEMENTATION RULE**
+
+**When creating ANY schedule:**
+1. Assign Netta's breaks FIRST (fixed times)
+2. Stagger all other staff around Netta's schedule
+3. Use 15-minute increments for spacing
+4. Verify NO overlaps before committing
+5. Test by listing all breaks chronologically
+
+**This is a NON-NEGOTIABLE operational requirement.**
+
+---
+
 ## Overview
 
 This codebase contains multiple healthcare informatics and bioinformatics projects focused on laboratory systems, data analysis, and academic coursework. The primary technologies are Python (for backend/data processing) and React (for frontend applications).
